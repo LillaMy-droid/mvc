@@ -1,0 +1,62 @@
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0 auto;
+   max-width: 400px;
+   background: url('../images/background.jpg');
+   background-size: cover;
+   text-align: center;
+   font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+.background {
+   background-color: rgb(255, 230, 183);
+   width: 80%;
+   margin: 0 auto;
+   padding: 20px;
+   min-height: 100vh;
+   box-sizing: border-box;  
+   min-width: 700px;  
+}
+
+.navbar {
+   background-color: #006400; /* Mörkgrön bakgrund */
+   overflow: hidden;
+}
+
+.navbar ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: space-around;
+}
+
+.navbar li {
+   display: inline;
+}
+
+.navbar a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 20px;
+   text-decoration: none;
+}
+
+.navbar a:hover {
+   background-color: #ee84c0;
+   color: black;
+   font-weight: bold;
+}
+
+.boblina {
+    width: 200px;
+
+}
