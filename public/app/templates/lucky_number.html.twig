@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+<div class="mainblock">
+    <div class="lucky">
+        <h1>Magic number</h1>
+            <p>Welcome to the lucky homepage.</p>
+            <p>This is the current lucky number: {{ number }}</p>
+        <img src="{{ asset('images/snail.png') }}" class="snail" alt="Picture of an animated snail">
+    </div>
+</div>
+{% endblock %}

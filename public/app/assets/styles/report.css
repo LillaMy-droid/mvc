@@ -1,0 +1,40 @@
+.two-col-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width:100%;
+    margin: 0 auto;
+}
+
+.two-col-layout > .main {
+    width: calc(100% / 16 * 11.5); /* 12/16 width */
+}
+
+.two-col-layout > .aside {
+    width: calc(100% / 16 * 4.5); /* 4/16 width */
+}
+
+.aside {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 16px;
+}
+
+.aside a {
+    text-decoration: none;
+    background-color: #006400; 
+    overflow: hidden;
+    color: white;
+}
+
+.aside a:hover {
+    background-color: #ee84c0;
+    color: black;
+    font-weight: bold;
+}
+
+.aside ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

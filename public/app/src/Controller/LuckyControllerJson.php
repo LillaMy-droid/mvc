@@ -29,7 +29,7 @@ class LuckyControllerJson
             $quote = "Vad kallar man en hund som kan trolla? - En labra-kadabra-dor!";
         }
         elseif ($number === 2) {
-            $quote = "Har du sett filmen om lastbilen? – Nej, men jag har sett trailern.";
+            $quote = "Har du sett filmen om lastbilen? - Nej, men jag har sett trailern.";
         }
         else {
             $quote = "Vilket djur flyger rakast? - Antiloop.";

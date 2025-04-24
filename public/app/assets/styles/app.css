@@ -1,0 +1,176 @@
+html,
+body {
+   height: 100%;
+   margin: 0;
+}
+
+body {
+   justify-content: center;
+   align-items: center;
+   background: url('../images/background.jpg');
+   background-size: cover;
+   text-align: center;
+   font-family: 'Quicksand', sans-serif;
+}
+
+.grid {
+   height: 100vh;
+   width: 100vw;
+   display: grid;
+   grid-template-columns: [first] 15% [second] 70% [third] 15% [endColumn];
+   grid-template-rows: [header] 100px [navbar] 50px [main] minmax(400px, auto)  [footer] 75px [endRow];
+}
+
+.header {
+   grid-column-start: first;
+   grid-column-end: endColumn;
+   grid-row-start: header; 
+   grid-row-end: navbar;  
+   background-color: #ee84c080;
+   font-size: 2rem;
+}
+
+.footer {
+   grid-column-start: second;
+   grid-column-end: third;
+   grid-row-start: footer; 
+   grid-row-end: endRow;  
+   background-color: #ee84c080;
+   font-size: 1rem;
+}
+
+.background {
+   grid-column: second;
+   grid-row-start: navbar;
+   grid-row-end: main;
+   background-color: rgb(255, 230, 183);
+   padding: 20px;
+   min-height: 100vh;
+   min-width: 700px;
+}
+
+.mainblock {
+   grid-column: second;
+   grid-row-start: navbar;
+   grid-row-end: main;
+   padding: 20px;
+}
+
+h1 {
+   text-decoration: none;
+   font-size: larger;
+   font-weight: bolder;
+}
+
+.navbar {
+   grid-row-start: navbar;
+   grid-row-end: main;
+   grid-row-start: second;
+   grid-row-end: third;
+   background-color: #006400; 
+   overflow: hidden;
+}
+
+.navbar ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: space-around;
+}
+
+.navbar li {
+   display: inline;
+}
+
+.navbar a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 20px;
+   text-decoration: none;
+}
+
+.navbar a:hover {
+   background-color: #ee84c0;
+   color: black;
+   font-weight: bold;
+}
+
+.main-column {
+   grid-row-start: main;
+   grid-row-end: footer;
+}
+
+.sidebar {
+   width: 20%;
+}
+
+.boblina {
+    width: 200px;
+}
+
+.lucky {
+   background: url('../images/lucky-pic.jpg');
+   font-size: large;
+   font-weight: bolder;
+}
+
+.snail {
+   max-width: 60vh;
+}
+
+/* .matrix {
+
+} */
+
+.two-col-layout {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   max-width:100%;
+   margin: 0 auto;
+}
+
+.two-col-layout > .main {
+   width: calc(100% / 16 * 13); /* 12/16 width */
+}
+
+.two-col-layout > .aside {
+   width: calc(100% / 16 * 3); /* 4/16 width */
+}
+
+.aside {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   padding-left: 1em;
+   padding-right: 1em;
+   padding-top: 16px;
+}
+
+.aside li {
+   text-decoration: none;
+   background-color: #006400; 
+   overflow: hidden;
+   color: white;
+   margin: 1em 0;
+   flex: 1;
+   text-align: center;
+}
+.aside a {
+   text-decoration: none;
+   color: white;
+}
+
+.aside li:hover {
+   background-color: #ee84c0;
+   color: black;
+   font-weight: bold;
+}
+
+.aside ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}

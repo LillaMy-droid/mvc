@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+<div class="mainblock">
+<div class="two-col-layout"> 
+    <aside class="aside" style="background-image: url({{ asset('images/matrix.jpg') }})">
+        <ul>
+        <li><a href="https://github.com/dbwebb-se/mvc/tree/main?tab=readme-ov-file">Kursens github</a></li> 
+        <li><a href="https://github.com/LillaMy-droid/mvc">Mitt githubrepo</a></li>
+        <ul>
+    </aside>  
+    <main class="main">
+        <article class="article">
+            <h1>Om kursen mvc</h1>
+                <p>Kursen "Objektorienterade webbteknologier" (även känd som MVC) fokuserar på att lära ut objektorienterade programmeringstekniker i PHP.
+                Vi går igenom objektorienterade konstruktioner och hur man använder dem i ett webbaserat ramverk tillsammans med databaser och enhetstestning.
+                Kursen täcker programmering i webbmiljö, inklusive syntax, semantik, databasanslutningar, datastrukturer och inbyggda funktioner.</p>
+
+                <p>Vi lär oss objektorienterad programmering i PHP, inklusive språkkonstruktioner och begrepp, och hur objektorientering kan användas för att strukturera och återanvända kod.
+                Vi går också igenom enkla designmönster.</p>
+
+                <p>En viktig del av kursen är att arbeta med SQL och databaser, särskilt med PHP Data Objects (PDO).
+                Vi utvecklar webbapplikationer i ett ramverk där tekniker som webbserver (Apache), PHP, HTML, CSS och SQL integreras.</p>
+
+                <p>Vi använder olika verktyg och tekniker som är lämpliga för utveckling av webbapplikationer, såsom UNIX/Linux, installation på extern webbserver, SSH, FTP/SFTP, och databasklienter som PHPMyAdmin, MySQL Workbench och kommandoklienter.</p>
+        </article>
+    </main>        
+</div>       
+</div>
+{% endblock %}

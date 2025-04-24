@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="grid">
+        <header class="header">
+            <span>Welcome to the MVC-course homepage</span>
+        </header>
+
+            <div class="background">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="{{ path('home') }}">Home</a></li>
+                        <li><a href="{{ path('about') }}">About</a></li>
+                        <li><a href="{{ path('report') }}">Report</a></li>
+                        <li><a href="{{ path('lucky_number') }}">Lucky quote</a></li>
+                    </ul>
+                </nav>
+                    {% block body %}{% endblock %}
+            </div>
+            
+            <footer class="footer">
+                <span>You have reached the end</span>
+            </footer>
+        </div>
+    </body>
+</html>
