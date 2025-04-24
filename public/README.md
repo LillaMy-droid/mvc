@@ -5,6 +5,7 @@ written:
     "2025-04-14": 
 ---
 -->
+!Bild om programmering[https://pixabay.com/illustrations/web-design-webdesign-web-design-1668931/]
 
 ### DV1608 V25 lp4 Objektorienterade webbteknologier
 
