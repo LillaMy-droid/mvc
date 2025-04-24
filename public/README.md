@@ -18,7 +18,7 @@ För att klona kursrepo från GitHub, följ dessa steg:
 1. Besök kursrepot på GitHub.
 2. Klicka på `<> Code` och kopiera URL:en för GitHub CLI.
 3. Öppna din terminal och kör följande kommando:
-    ```bash
+    ```
     git clone https://github.com/LillaMy-droid/mvc.git
     ```
 
