@@ -5,9 +5,10 @@ written:
     "2025-04-14": 
 ---
 -->
-!Bild om programmering[https://pixabay.com/illustrations/web-design-webdesign-web-design-1668931/]
+![Bild på programmering](./img/litenprogrammerare.png)
 
-### DV1608 V25 lp4 Objektorienterade webbteknologier
+DV1608 V25 lp4 Objektorienterade webbteknologier
+================================================
 
 Denna kurs vid Blekinge Tekniska Högskola (BTH) fokuserar på att implementera objektorienterad PHP med MVC-struktur, med hjälp av ramverket Symfony och templating-motorn Twig. Kursen omfattar 6 kursmoment samt ett slutprojekt.
 
