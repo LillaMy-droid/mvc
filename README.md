@@ -5,7 +5,7 @@ written:
     "2025-04-14": 
 ---
 -->
-![Bild på programmering](./img/litenprogrammerare.png)
+![Bild på programmering](./public/img/litenprogrammerare.png)
 
 DV1608 V25 lp4 Objektorienterade webbteknologier
 ================================================
