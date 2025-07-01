@@ -37,6 +37,8 @@ body {
    grid-row-end: endRow;  
    background-color: #ee84c080;
    font-size: 1rem;
+   position: fixed;
+   bottom: 0;
 }
 
 .background {
@@ -120,10 +122,6 @@ h1 {
    max-width: 60vh;
 }
 
-/* .matrix {
-
-} */
-
 .two-col-layout {
    display: flex;
    flex-direction: row;
@@ -173,4 +171,32 @@ h1 {
    list-style-type: none;
    margin: 0;
    padding: 0;
+}
+
+.die {
+    font-size: 2em;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}
+
+span {
+   margin: 0.5rem;
 }

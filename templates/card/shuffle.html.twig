@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Shuffle{% endblock %}
+
+{% block main %}
+    <div class="mainblock">       
+            {% for card in cards %}
+                {% if card is iterable %}
+                    <span> {{ card[0] }}{{ card[1] }} </span>
+                {% else %}
+                    <span>{{ card }}</span>
+                {% endif %}
+            {% endfor %}
+    </div>
+{% endblock %}

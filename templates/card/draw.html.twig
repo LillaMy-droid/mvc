@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw{% endblock %}
+
+{% block main %}
+<div class="mainblock">
+
+    <h1>Draw cards from the deck</h1>
+    
+    <p>Number of cards left in deck: {{ countDeck }}</p>
+    
+    <h2>Drawn cards:</h2>
+    <ul>        
+        {% for card in cards %}
+            {% if card is iterable %}
+                <li>{{ card[0] }}{{ card[1] }}</li>
+            {% else %}
+                <li>{{ card }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <form method="get" id="form">
+        <label for="number">Choose amount of cards to draw from deck</label>
+            <input type="number" id="number" min="1" max="{{ countDeck }}">
+            <button type="submit">Draw cards</button>
+    </form>
+</div>
+<script>
+    document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const num = document.getElementById('number').value;
+        const url = `/card/deck/draw/${num}`;
+
+        window.location.href = url;
+    });
+</script>
+{% endblock %}
+
+
+
+
+

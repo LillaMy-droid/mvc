@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session info{% endblock %}
+
+{% block main %}
+<div class="mainblock">
+    <h1>Sessionsinnehåll</h1>
+    {% if sessionData is empty %}
+        <p>Session is empty</p>
+    {% else %}
+        <p>{{ dump(sessionData) }}</p>
+    {% endif %}
+</div>
+{% endblock %}
