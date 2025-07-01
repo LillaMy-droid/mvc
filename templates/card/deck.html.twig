@@ -1,15 +1,15 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Deck{% endblock %}
 
 {% block main %}
 <div class="mainblock">
-    
-    <img src="{{ asset('images/boblina.png') }}" alt="UML for card-classes" class="boblina">
-    <p>Skapa en sida card/deck som visar samtliga kort i kortleken sorterade per färg och värde.</p>
-
-    <p></p>
-
-    <p></p>
+    {% for card in cards %}
+        {% if card is iterable %}
+            <span> {{ card[0] }}{{ card[1] }} </span>
+        {% else %}
+            <span>{{ card }}</span>
+        {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

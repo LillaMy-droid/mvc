@@ -15,5 +15,4 @@ class CardHand extends Card
     // public function getHand($this->number_of_cards);
     // {
     // }
-
 }

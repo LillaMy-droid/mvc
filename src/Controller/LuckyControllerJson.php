@@ -14,7 +14,11 @@ class LuckyControllerJson
 
         $data = [
             'Du har hittat till min JSON-sida!
-            Vill du ha en ordvits? Testa: /api/quote',
+            Vill du ha en ordvits? Testa: /api/quote
+            Sortera en kortlek: /api/deck
+            Blanda kortleken: /api/shuffle
+            Dra kort ur en kortlek: /api/draw
+            ',
         ];
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
@@ -47,4 +51,5 @@ class LuckyControllerJson
         );
         return $response;
     }
+
 }

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use App\Card\CardGraphic;
 
 class CardGameController extends AbstractController
 {
@@ -41,7 +42,14 @@ class CardGameController extends AbstractController
     #[Route("/card/deck", name: "show_deck")]
     public function showDeck(SessionInterface $session): Response
     {
-        return $this->render('/card/deck.html.twig');
+        $deck = new DeckOfCards();
+        $deck->sortDeck();
+        $graphCards = new cardGraphic();
+        foreach ($deck->getDeck() as $card) {
+            $cards[] = $graphCards->cardGraphic($card);
+        }
+
+        return $this->render('/card/deck.html.twig', ['cards' => $cards]);
     }
 
     #[Route("/card/deck/shuffle", name: "shuffle")]
@@ -51,9 +59,10 @@ class CardGameController extends AbstractController
 
         $deck = new DeckOfCards();
         $deck->shuffleDeck();
+        $graphCards = new cardGraphic();
 
         foreach ($deck->getDeck() as $card) {
-            $cards[] = $deck->cardGraphic($card);
+            $cards[] = $graphCards->cardGraphic($card);
         }
 
         $session->set('deckOfCards', $deck);
@@ -73,12 +82,13 @@ class CardGameController extends AbstractController
         if (!$drawnCards) {
             $drawnCards = [];
         }
+        $graphCards = new cardGraphic();
         $card = $deck->drawCard();
         if ($card === null) {
             $this->addFlash('error', "Deck is now empty");
         } else {
             $drawnCards[] = $card;
-            $graph = $deck->cardGraphic($card);
+            $graph = $graphCards->cardGraphic($card);
 
 
             $session->set('deckOfCards', $deck);
@@ -106,12 +116,13 @@ class CardGameController extends AbstractController
             $drawnCards = [];
         }
         $cards = $deck->drawMultipleCard($num);
+        $graphCards = new cardGraphic();
         if ($cards === null) {
             $this->addFlash('error', "Deck is now empty");
         } else {
             foreach ($cards as $card) {
                 $drawnCards[] = $card;
-                $graphicCard[] = $deck->cardGraphic($card);
+                $graphicCard[] = $graphCards->cardGraphic($card);
             }
 
             $session->set('deckOfCards', $deck);

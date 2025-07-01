@@ -18,6 +18,19 @@
     <main class="main">
         <div class="mainblock">
             <article class="article">
+            
+                <h2>Klassstruktur</h2>
+                    <p>
+                        Det här projektet består av ett objektorienterat system för att hantera en kortlek. Systemet är uppdelat i tre huvudklasser:
+                    </p>
+
+                <ul>
+                    <li><strong>Card</strong>: Representerar ett enskilt spelkort. Har attributen <code>value</code> (1-12) och <code>color</code> (1-4). Innehåller metoder för att sätta och hämta dessa värden.</li>
+                    <li><strong>DeckOfCards</strong>: Ärver från <code>Card</code>, men fungerar som en container för 52 kort. Har metoder för att blanda, sortera, dra ett eller flera kort, samt hämta dragna kort.</li>
+                    <li><strong>CardGraphic</strong>: Ärver från <code>Card</code>. Innehåller metoder för att konvertera ett kort till en grafisk representation (t.ex. "Queen ♥").</li>
+                </ul>
+                <img src="{{ asset('images/cardClass.png') }}" alt="UML-diagram for Card">
+
             </article>
         </div>
     </main>

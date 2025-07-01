@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Card\CardGraphic;
 use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
@@ -19,8 +20,9 @@ class CardGameControllerJson
         $sortedDeck = [];
         $deck = new DeckOfCards();
         $cards = $deck->getDeck();
+        $graphCards = new cardGraphic();
         foreach ($cards as $card) {
-            $sortedDeck[] = $deck->cardGraphicString($card);
+            $sortedDeck[] = $graphCards->cardGraphicString($card);
         }
 
         usort($sortedDeck, function ($a, $b) {
@@ -43,9 +45,10 @@ class CardGameControllerJson
 
         $deck = new DeckOfCards();
         $deck->shuffleDeck();
+        $graphCards = new cardGraphic();
 
         foreach ($deck->getDeck() as $card) {
-            $cards[] = $deck->cardGraphicString($card);
+            $cards[] = $graphCards->cardGraphicString($card);
         }
 
         $session->set('deck', $deck);
@@ -62,6 +65,7 @@ class CardGameControllerJson
     {
         $deck = $session->get('deck');
         $drawnCards = $session->get('drawnCards');
+        $graphCards = new cardGraphic();
         if (!$deck) {
             $deck = new DeckOfCards();
             $deck->shuffleDeck();
@@ -75,7 +79,7 @@ class CardGameControllerJson
         } else {
             foreach ($cards as $card) {
                 $drawnCards[] = $card;
-                $graphicCard[] = $deck->cardGraphicString($card);
+                $graphicCard[] = $graphCards->cardGraphicString($card);
             }
 
             $session->set('deck', $deck);
@@ -96,6 +100,7 @@ class CardGameControllerJson
     {
         $deck = $session->get('deck');
         $drawnCards = $session->get('drawnCards');
+        $graphCards = new cardGraphic();
         if (!$deck) {
             $deck = new DeckOfCards();
             $deck->shuffleDeck();
@@ -103,7 +108,7 @@ class CardGameControllerJson
         if (!$drawnCards) {
             $drawnCards = [];
         }
-        $cards = $deck->drawMultipleCard($num);
+        $cards = $graphCards->drawMultipleCard($num);
         if ($cards === null) {
             $graphicCard = "Deck is now empty";
         } else {

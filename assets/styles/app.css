@@ -31,8 +31,8 @@ body {
 }
 
 .footer {
-   grid-column-start: second;
-   grid-column-end: third;
+   grid-column-start: first;
+   grid-column-end: endcolumn;
    grid-row-start: footer; 
    grid-row-end: endRow;  
    background-color: #ee84c080;

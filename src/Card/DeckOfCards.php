@@ -11,18 +11,12 @@ class DeckOfCards extends Card
 
     public function __construct()
     {
-        $this->initDeck();
-    }
-
-    public function initDeck(): void
-    {
-        $this->deck = [];
 
         for ($value = 1; $value <= 13; $value++) {
             for ($color = 1; $color <= 4; $color++) {
                 $card = new Card();
                 $card->setValue($value);
-                $card->setColorNum($color);
+                $card->setColor($color);
                 $this->deck[] = $card;
             }
         }
@@ -35,14 +29,16 @@ class DeckOfCards extends Card
 
     public function sortDeck(): array
     {
-        usort($this->deckOfCards, function ($cardA, $cardB) {
-            if ($cardA[1] === $cardB[1]) {
-                return $cardA[0] <=> $cardB[0];
+
+        usort($this->deck, function ($cardA, $cardB) {
+            if ($cardA->getColor() === $cardB->getColor()) {
+                return $cardA->getValue() <=> $cardB->getValue();
             }
-            return $cardA[1] <=> $cardB[1];
+            return $cardA->getColor() <=> $cardB->getColor();
+
         });
 
-        return $this->deckOfCards;
+        return $this->deck;
     }
 
     public function drawCard(): ?Card
