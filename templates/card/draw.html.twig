@@ -10,17 +10,19 @@
     <p>Number of cards left in deck: {{ countDeck }}</p>
     
     <h2>Drawn cards:</h2>
-    <ul>        
-        {% for card in cards %}
-            {% if card is iterable %}
-                <li>{{ card[0] }}{{ card[1] }}</li>
-            {% else %}
-                <li>{{ card }}</li>
-            {% endif %}
-        {% endfor %}
+    <ul>
+        
+    {% for card in cards %}
+        {% if card is iterable %}
+            <span> {{ card[0] }}{{ card[1] }} </span>
+        {% else %}
+            <span>{{ card }}</span>
+        {% endif %}
+    {% endfor %}
+
     </ul>
 
-    <form method="get" id="form">
+    {# <form method="get" id="form">
         <label for="number">Choose amount of cards to draw from deck</label>
             <input type="number" id="number" min="1" max="{{ countDeck }}">
             <button type="submit">Draw cards</button>
@@ -28,17 +30,19 @@
 </div>
 <script>
     document.getElementById('form').addEventListener('submit', function (event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        const num = document.getElementById('number').value;
-        const url = `/card/deck/draw/${num}`;
+    const num = document.getElementById('number').value.trim();
 
-        window.location.href = url;
+    let url;
+    if (num) {
+        url = `{{ path('draw_number', {'num': '__NUM__'}) }}`.replace('__NUM__', num);
+    } else {
+        url = `{{ path('draw_card') }}`;
+    }
+
+    window.location.href = url;
     });
-</script>
+</script> #}
+</div>
 {% endblock %}
-
-
-
-
-

@@ -90,7 +90,6 @@ class CardGameController extends AbstractController
             $drawnCards[] = $card;
             $graph = $graphCards->cardGraphic($card);
 
-
             $session->set('deckOfCards', $deck);
             $session->set('drawnCards', $drawnCards);
         }
@@ -117,6 +116,7 @@ class CardGameController extends AbstractController
         }
         $cards = $deck->drawMultipleCard($num);
         $graphCards = new cardGraphic();
+        $graphicCard = [];
         if ($cards === null) {
             $this->addFlash('error', "Deck is now empty");
         } else {
