@@ -28,12 +28,14 @@ class LuckyControllerJson
     #[Route("api/quote")]
     public function jsonQuote(): Response
     {
-        $number = random_int(0, 4);
+        $number = random_int(1, 3);
         if ($number === 1) {
             $quote = "Vad kallar man en hund som kan trolla? - En labra-kadabra-dor!";
-        } elseif ($number === 2) {
+        } 
+        if ($number === 2) {
             $quote = "Har du sett filmen om lastbilen? - Nej, men jag har sett trailern.";
-        } else {
+        } 
+        if ($number === 3) {
             $quote = "Vilket djur flyger rakast? - Antiloop.";
         }
 
