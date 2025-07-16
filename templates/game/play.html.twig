@@ -1,0 +1,22 @@
+{# Gör två knappar, en för att dra ett kort och en för att stoppa turen
+när turen stoppas är det bankens tur. #}
+{% extends "base.html.twig" %}
+
+{% block title %}Play 21{% endblock %}
+
+{% block main %}
+
+<h1>Your hand</h1>
+<ul>
+    {% for card in hand %}
+        <li>[{{ card[0] }} {{ card[1] }}]</li>
+    {% endfor %}
+</ul>
+
+<p><strong>Points:</strong> {{ points }}</p>
+
+<a href="{{ path('game_draw') }}" class="btn btn-success">Dra kort</a>
+<a href="{{ path('game_bank') }}" class="btn btn-warning">Stanna</a>
+
+
+{% endblock %}

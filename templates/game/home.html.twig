@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cardgame{% endblock %}
+
+{% block main %}
+<div class="two-col-layout"> 
+    <aside class="aside">
+        <h1>Innehåll</h1>
+        <ul class="button">
+            <li><a href="{{ path('card_home') }}">Card</a></li>
+            <li><a href="{{ path('game_doc') }}">Documentation</a></li>
+            <li><a href="{{ path('session_delete') }}">Session Delete</a></li>
+        </ul>
+    </aside>  
+    <main class="main">
+        <div class="mainblock">
+            <article class="article">
+               <h1>Welcome to card game 21!</h1>
+               <p><bold>Rules</bold>Each card is worth its corresponding number. Aces are either 1 or 14 points.
+                    Jacks, Kings, and Queens are worth 11, 12, and 13 points respectively.
+                    The goal of the game is to get as close to 21 points as possible without going over.
+                    If a player exceeds 21 points, the opponent automatically wins.
+                    The player receives two cards and then chooses whether to draw another card or stop.
+                    This continues until the player is satisfied. Then it's the bank's turn.
+                    The one closest to 21 points wins the game. If it's a tie, the bank wins. </p>
+                <a href="{{ path('game_start') }}" class="btn btn-primary">Start game</a>
+            </article>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

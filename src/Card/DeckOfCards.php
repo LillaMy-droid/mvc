@@ -6,8 +6,8 @@ use App\Card\Card;
 
 class DeckOfCards extends Card
 {
-    protected $deck = [];
-    protected $drawnCards = [];
+    protected array $deck;
+    protected array $drawnCards;
 
     public function __construct()
     {
@@ -29,7 +29,6 @@ class DeckOfCards extends Card
 
     public function sortDeck(): array
     {
-
         usort($this->deck, function ($cardA, $cardB) {
             if ($cardA->getColor() === $cardB->getColor()) {
                 return $cardA->getValue() <=> $cardB->getValue();

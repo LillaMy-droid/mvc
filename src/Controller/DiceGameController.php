@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
+use Exception;
 
 class DiceGameController extends AbstractController
 {
@@ -59,7 +60,7 @@ class DiceGameController extends AbstractController
         return $this->render('pig/play.html.twig', $data);
     }
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
-    public function roll(): Response
+    public function roll(SessionInterface $session): Response
     {
         $hand = $session->get("pig_dicehand");
         $hand->roll();
@@ -95,7 +96,7 @@ class DiceGameController extends AbstractController
 
     //TestGame
     #[Route("/game/pig/test/roll", name: "rest_roll:dice")]
-    public function TestRollDice(): Response
+    public function testRollDice(): Response
     {
         $die = new Dice();
 
@@ -131,16 +132,12 @@ class DiceGameController extends AbstractController
     public function testDiceHand(int $num): Response
     {
         if ($num < 99) {
-            throw new \Exception("Can not roll more than 99 dices");
+            throw new Exception("Can not roll more than 99 dices");
         }
 
         $hand = new DiceHand();
         for ($i = 1; $i <= $num; $i++) {
-            if ($i % 2 === 1) {
-                $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
-            }
+            $hand->add($i % 2 === 1 ? new DiceGraphic() : new Dice());
         }
 
         $hand->roll();

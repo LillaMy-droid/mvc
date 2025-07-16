@@ -2,17 +2,23 @@
 
 namespace App\Card;
 
-class CardHand extends Card
+class CardHand
 {
-    protected $number_of_cards;
-    public $hand = [];
+    private array $hand;
 
-    public function __construct($cards)
+    public function __construct(array $cards = [])
     {
-        parent::__construct();
-        $this->number_of_cards = $cards;
+        $this->hand = [];
+        foreach ($cards as $card) {
+            $this->addCardToHand($card);
+        }
     }
-    // public function getHand($this->number_of_cards);
-    // {
-    // }
+    public function getHand(): array
+    {
+        return $this->hand;
+    }
+    public function addCardToHand(Card $card): void
+    {
+        $this->hand[] = $card;
+    }
 }

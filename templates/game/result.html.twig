@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Results{% endblock %}
+
+{% block main %}
+
+    <h1>Result</h1>
+
+    <h2>Your hand</h2>
+        <ul>
+            {% for card in player %}
+                <li>[{{ card[0] }} {{ card[1] }}]</li>
+            {% endfor %}
+        </ul>
+        <p>Total points:{{ player_points }}</p>
+
+    <h2>Banks hand</h2>
+        <ul>
+            {% for card in bank %}
+                <li>[{{ card[0] }} {{ card[1] }}]</li>
+            {% endfor %}
+        </ul>
+        <p>Total Points: {{ bank_points }}</p>
+
+    <h3>{{ result }}</h3>
+
+    <a href="{{ path('game_start') }}" class="btn btn-primary">Play again</a>
+
+{% endblock %}

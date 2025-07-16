@@ -25,8 +25,8 @@ class CardGameControllerJson
             $sortedDeck[] = $graphCards->cardGraphicString($card);
         }
 
-        usort($sortedDeck, function ($a, $b) {
-            return $a[1] <=> $b[1];
+        usort($sortedDeck, function ($cardA, $cardB) {
+            return $cardA[1] <=> $cardB[1];
         });
 
         $session->set('deck', $deck);
@@ -66,6 +66,7 @@ class CardGameControllerJson
         $deck = $session->get('deck');
         $drawnCards = $session->get('drawnCards');
         $graphCards = new cardGraphic();
+        $graphicCard = [];
         if (!$deck) {
             $deck = new DeckOfCards();
             $deck->shuffleDeck();
@@ -74,25 +75,30 @@ class CardGameControllerJson
             $drawnCards = [];
         }
         $cards = $deck->drawMultipleCard($num);
+        
         if ($cards === null) {
             $graphicCard = "Deck is now empty";
-        } else {
-            foreach ($cards as $card) {
-                $drawnCards[] = $card;
-                $graphicCard[] = $graphCards->cardGraphicString($card);
-            }
-
-            $session->set('deck', $deck);
-            $session->set('drawnCards', $drawnCards);
+            $countDeck = $deck->countDeck();
+            return new JsonResponse([
+                'Cards left:' => $countDeck,
+                'Drawn cards:' => $graphicCard
+            ]);
         }
 
+        foreach ($cards as $card) {
+            $drawnCards[] = $card;
+            $graphicCard[] = $graphCards->cardGraphicString($card);
+        }
+
+        $session->set('deck', $deck);
+        $session->set('drawnCards', $drawnCards);
+
         $countDeck = $deck->countDeck();
-        $response = [
+        return new JsonResponse([
             'Cards left:' => $countDeck,
             'Drawn cards:' => $graphicCard
-        ];
+        ]);
 
-        return new JsonResponse($response);
     }
 
     #[Route("/api/deck/draw", name: "deck_draw_one", methods: ["GET"])]
@@ -100,7 +106,9 @@ class CardGameControllerJson
     {
         $deck = $session->get('deck');
         $drawnCards = $session->get('drawnCards');
-        $graphCards = new cardGraphic();
+        $graphCards = new CardGraphic();
+        $graphicCard = [];
+
         if (!$deck) {
             $deck = new DeckOfCards();
             $deck->shuffleDeck();
@@ -108,26 +116,31 @@ class CardGameControllerJson
         if (!$drawnCards) {
             $drawnCards = [];
         }
-        $cards = $graphCards->drawMultipleCard($num);
+        $cards = $deck->drawMultipleCard($num);
+       
         if ($cards === null) {
             $graphicCard = "Deck is now empty";
-        } else {
-            foreach ($cards as $card) {
-                $drawnCards[] = $card;
-                $graphicCard[] = $deck->cardGraphicString($card);
-            }
-
-            $session->set('deck', $deck);
-            $session->set('drawnCards', $drawnCards);
+            $countDeck = $deck->countDeck();
+            return new JsonResponse([
+                'Cards left:' => $countDeck,
+                'Drawn cards:' => $graphicCard
+            ]);
         }
 
+        foreach ($cards as $card) {
+            $drawnCards[] = $card;
+            $graphicCard[] = $graphCards->cardGraphicString($card);
+        }
+
+        $session->set('deck', $deck);
+        $session->set('drawnCards', $drawnCards);
+
         $countDeck = $deck->countDeck();
-        $response = [
+        return new JsonResponse([
             'Cards left:' => $countDeck,
             'Drawn cards:' => $graphicCard
-        ];
+        ]);
 
-        return new JsonResponse($response);
     }
 
 }

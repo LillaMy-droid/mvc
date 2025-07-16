@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Results{% endblock %}
+
+{% block main %}
+
+    <h1>Dokumentation för processen av att skapa spelet</h1>
+    <h2>Flowchart</h2>
+    <img src="{{ asset('images/FlowchartCardGame.png') }}" alt="Flowchart Game 21" class="boblina">
+
+    <h2>Pseudokod</h2>
+    <img src="{{ asset('images/pseudokod.png') }}" alt="Pseudokod Game 21" class="boblina">
+
+    <h2>Classes</h2>
+    <p><bold>Bank:</bold> Plays the game as the bank.</p>
+    <p><bold>Card:</bold> Respresents each card in the deck.</p>
+    <p><bold>CardGraphic:</bold> Returns graphics of the card.</p>
+    <p><bold>CardHand:</bold> Contains all the cards from one hand.</p>
+    <p><bold>DeckOfCards:</bold> Keeps track of the deck and drawn cards.</p>
+    <p><bold>Game:</bold> Functions to play the game see who wins and calculate points.</p>
+
+{% endblock %}

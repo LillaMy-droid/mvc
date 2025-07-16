@@ -11,7 +11,6 @@ class LuckyControllerJson
     #[Route("api")]
     public function jsonIndex(): Response
     {
-
         $data = [
             'Du har hittat till min JSON-sida!
             Vill du ha en ordvits? Testa: /api/quote
@@ -37,19 +36,12 @@ class LuckyControllerJson
         } else {
             $quote = "Vilket djur flyger rakast? - Antiloop.";
         }
-        $date = date("Y/m/d");
-        $time = date("h:i:sa");
 
         $data = [
             'Din dagliga ordvits ' => $quote,
-            'dagens datum ' => $date,
-            'och tiden ' => $time
+            'dagens datum ' => date("Y/m/d"),
+            'och tiden ' => date("h:i:s")
         ];
-        $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
+        return new JsonResponse($data, json: JSON_PRETTY_PRINT);
     }
-
 }

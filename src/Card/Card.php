@@ -4,15 +4,12 @@ namespace App\Card;
 
 class Card
 {
-    protected $value;
-    protected $color;
-    protected $card;
+    protected int $value;
+    protected int $color;
+    protected array $card;
 
     public function __construct()
     {
-        $this->value = null;
-        $this->color = null;
-        $this->card = null;
     }
 
     public function setValue(int $value): void
