@@ -11,6 +11,7 @@ use App\Card\CardGraphic;
 use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use App\Card\Game;
 
 class CardGameControllerJson
 {
@@ -140,6 +141,37 @@ class CardGameControllerJson
             'Cards left:' => $countDeck,
             'Drawn cards:' => $graphicCard
         ]);
+
+    }
+    #[Route("api/game/")]
+    public function game21(SessionInterface $session): Response
+    {
+        $player = $session->get('player') ?? [];
+        $bank = $session->get('bank') ?? [];
+        $game = $session->get('game') ?? new Game();
+        $bankPoints = $session->get('bank_points') ?? 0;
+        $deck = $session->get('deck') ?? new DeckOfCards();
+
+        $playerCard = [];
+        $bankCard = [];
+        $playerPoint = $game->points($player);
+
+        foreach ($player->getHand() as $card) {
+            $graphic = new CardGraphic();
+            $playerCard[] = $graphic->cardGraphicString($card);
+        }
+        foreach ($bank->getHand()->getHand() as $card) {
+            $bankCard[] = $graphic->cardGraphicString($card);
+        }
+
+        return new JsonResponse([
+            'Player:' => $playerCard,
+            'PlayerPoints:' => $playerPoint,
+            'Bank:' => $bankCard,
+            'Bank points:' => $bankPoints,
+            'Deck: ' => $deck
+        ]);
+
 
     }
 

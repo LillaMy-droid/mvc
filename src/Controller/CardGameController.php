@@ -109,7 +109,7 @@ class CardGameController extends AbstractController
     public function drawNumber(int $num, SessionInterface $session): Response
     {
 
-        $deck = $session->get('deckOfCards')  ?? new DeckOfCards();
+        $deck = $session->get('deckOfCards') ?? new DeckOfCards();
         $drawnCards = $session->get('drawnCards') ?? [];
         
         if (!$session->get('deckOfCards')) {
