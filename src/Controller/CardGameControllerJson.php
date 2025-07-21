@@ -154,7 +154,7 @@ class CardGameControllerJson
 
         $playerCard = [];
         $bankCard = [];
-        $graphic = new CardGraphic;
+        $graphic = new CardGraphic();
         $playerPoint = $game->points($player);
 
         foreach ($player->getHand() as $card) {

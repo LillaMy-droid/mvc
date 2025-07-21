@@ -31,9 +31,9 @@ class CardGameController extends AbstractController
     public function deleteSession(SessionInterface $session): Response
     {
         $session->clear();
-        if (empty($session->all())) {
+        if (count($session->all()) <= 0) {
             $this->addFlash('success', "Session destroyed successfully");
-        } elseif (!empty($session->all())) {
+        } elseif (count($session->all()) > 0) {
             $this->addFlash('error', "Session NOT destroyed successfully");
         }
         return $this->render('/card/session_delete.html.twig');
