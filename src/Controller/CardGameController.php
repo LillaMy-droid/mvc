@@ -111,11 +111,11 @@ class CardGameController extends AbstractController
 
         $deck = $session->get('deckOfCards') ?? new DeckOfCards();
         $drawnCards = $session->get('drawnCards') ?? [];
-        
+
         if (!$session->get('deckOfCards')) {
             $deck->shuffleDeck();
         }
-        
+
         $cards = $deck->drawMultipleCard($num);
         $graphCards = new CardGraphic();
         $graphicCard = [];

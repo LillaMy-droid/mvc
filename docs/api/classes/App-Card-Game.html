@@ -126,11 +126,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Class has methods to play the game of 21.</p>
+
 
 
 
@@ -169,14 +170,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Game.html#method_getWinner">getWinner()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: <abbr title="\App\Card\str">str</abbr>    </span>
 </dt>
+<dd>Compares points of both players to see if bank or player won the round.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Game.html#method_points">points()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
+<dd>Calculates th epoint of the current cardhand.</dd>
 
     </dl>
 
@@ -206,7 +209,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -240,14 +243,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Compares points of both players to see if bank or player won the round.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getWinner</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bankHand</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$playerHand</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">getWinner</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bankHand</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$playerHand</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\App\Card\str">str</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -260,14 +264,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Current hand of cards from bank</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$playerHand</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Current hand of cards from player</p>
+</section>
+
             </dd>
             </dl>
 
@@ -277,7 +285,11 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\App\Card\str">str</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Return a string of who the winner is</p>
+</section>
+
             </section>
 
 </article>
@@ -295,11 +307,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Game.php"><a href="files/src-card-game.html"><abbr title="src/Card/Game.php">Game.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Calculates th epoint of the current cardhand.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">points</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hand</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
@@ -315,7 +328,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The current hand of player</p>
+</section>
+
             </dd>
             </dl>
 
@@ -326,6 +341,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>$totalPoints The total points of the hand</p>
+</section>
+
             </section>
 
 </article>

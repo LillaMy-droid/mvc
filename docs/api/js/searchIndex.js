@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\App\\Card\\Bank",
             "name": "Bank",
-            "summary": "",
+            "summary": "This\u0020class\u0020contains\u0020method\u0020needed\u0020for\u0020the\u0020bank\u0020to\u0020play\n\u0020the\u0020game\u0020of\u002021.",
             "url": "classes/App-Card-Bank.html"
         },                {
             "fqsen": "\\App\\Card\\Bank\u003A\u003A__construct\u0028\u0029",
@@ -13,12 +13,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Bank\u003A\u003AgetHand\u0028\u0029",
             "name": "getHand",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020hand\u0020of\u0020the\u0020bank",
             "url": "classes/App-Card-Bank.html#method_getHand"
         },                {
             "fqsen": "\\App\\Card\\Bank\u003A\u003AplayTurn\u0028\u0029",
             "name": "playTurn",
-            "summary": "",
+            "summary": "If\u0020points\u0020are\u0020less\u0020than\u002017\u0020the\u0020bank\u0020will\u0020draw\u0020a\u0020new\u0020card.",
             "url": "classes/App-Card-Bank.html#method_playTurn"
         },                {
             "fqsen": "\\App\\Card\\Bank\u003A\u003A\u0024hand",
@@ -178,7 +178,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Game",
             "name": "Game",
-            "summary": "",
+            "summary": "Class\u0020has\u0020methods\u0020to\u0020play\u0020the\u0020game\u0020of\u002021.",
             "url": "classes/App-Card-Game.html"
         },                {
             "fqsen": "\\App\\Card\\Game\u003A\u003A__construct\u0028\u0029",
@@ -188,12 +188,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Game\u003A\u003Apoints\u0028\u0029",
             "name": "points",
-            "summary": "",
+            "summary": "Calculates\u0020th\u0020epoint\u0020of\u0020the\u0020current\u0020cardhand.",
             "url": "classes/App-Card-Game.html#method_points"
         },                {
             "fqsen": "\\App\\Card\\Game\u003A\u003AgetWinner\u0028\u0029",
             "name": "getWinner",
-            "summary": "",
+            "summary": "Compares\u0020points\u0020of\u0020both\u0020players\u0020to\u0020see\u0020if\u0020bank\u0020or\u0020player\u0020won\u0020the\u0020round.",
             "url": "classes/App-Card-Game.html#method_getWinner"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",

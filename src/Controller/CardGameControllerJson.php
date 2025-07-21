@@ -76,7 +76,7 @@ class CardGameControllerJson
             $drawnCards = [];
         }
         $cards = $deck->drawMultipleCard($num);
-        
+
         if ($cards === null) {
             $graphicCard = "Deck is now empty";
             $countDeck = $deck->countDeck();
@@ -118,7 +118,7 @@ class CardGameControllerJson
             $drawnCards = [];
         }
         $cards = $deck->drawMultipleCard($num);
-       
+
         if ($cards === null) {
             $graphicCard = "Deck is now empty";
             $countDeck = $deck->countDeck();

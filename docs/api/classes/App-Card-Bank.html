@@ -126,11 +126,13 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Bank.php"><a href="files/src-card-bank.html"><abbr title="src/Card/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">This class contains method needed for the bank to play
+ the game of 21.</p>
+
 
 
 
@@ -184,12 +186,14 @@
     <span>
                                 &nbsp;: <a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a>    </span>
 </dt>
+<dd>Returns the hand of the bank</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Bank.html#method_playTurn">playTurn()</a>
     <span>
                                 &nbsp;: <abbr title="array{cards: \App\Card\Card[], points: int}">Card[], points: int}</abbr>    </span>
 </dt>
+<dd>If points are less than 17 the bank will draw a new card.</dd>
 
     </dl>
 
@@ -221,7 +225,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Bank.php"><a href="files/src-card-bank.html"><abbr title="src/Card/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -264,7 +268,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Bank.php"><a href="files/src-card-bank.html"><abbr title="src/Card/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -298,11 +302,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Bank.php"><a href="files/src-card-bank.html"><abbr title="src/Card/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the hand of the bank</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getHand</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span></code>
@@ -319,6 +324,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/App-Card-CardHand.html"><abbr title="\App\Card\CardHand">CardHand</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The current hand of the bank</p>
+</section>
+
             </section>
 
 </article>
@@ -336,11 +345,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/Bank.php"><a href="files/src-card-bank.html"><abbr title="src/Card/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">If points are less than 17 the bank will draw a new card.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">playTurn</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$deck</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Game.html"><abbr title="\App\Card\Game">Game</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$game</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="array{cards: \App\Card\Card[], points: int}">Card[], points: int}</abbr></span></code>
@@ -348,7 +358,10 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Card is added to drawn cards to keep track and then return
+drawn cards and the final points for the bank.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -356,7 +369,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The deck to draw cards from</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$game</span>
@@ -374,6 +389,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="array{cards: \App\Card\Card[], points: int}">Card[], points: int}</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array with drawn cards and final points</p>
+</section>
+
             </section>
 
 </article>

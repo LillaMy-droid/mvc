@@ -31,10 +31,10 @@ class LuckyControllerJson
         $number = random_int(1, 3);
         if ($number === 1) {
             $quote = "Vad kallar man en hund som kan trolla? - En labra-kadabra-dor!";
-        } 
+        }
         if ($number === 2) {
             $quote = "Har du sett filmen om lastbilen? - Nej, men jag har sett trailern.";
-        } 
+        }
         if ($number === 3) {
             $quote = "Vilket djur flyger rakast? - Antiloop.";
         }

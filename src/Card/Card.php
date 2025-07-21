@@ -10,6 +10,8 @@ class Card
 
     public function __construct()
     {
+        $this->value = 0;
+        $this->color = 0;
     }
 
     public function setValue(int $value): void
