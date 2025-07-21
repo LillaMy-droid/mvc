@@ -35,7 +35,7 @@ class DeckTest extends TestCase
         $deck = new DeckOfCards();
 
         $this->assertInstanceOf(Card::class, $deck->drawCard());
-        $cards = $deck->drawMultipleCard(51);
+        $deck->drawMultipleCard(51);
 
         $this->assertNull($deck->drawCard());
     }

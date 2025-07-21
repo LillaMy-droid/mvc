@@ -107,11 +107,12 @@ class DiceGameController extends AbstractController
 
         return $this->render('pig/test/roll.html.twig', $data);
     }
+
     #[Route("game/pig/test/roll/{num<\d+>}", name:"test_roll_num_dices")]
     public function testRollDices(int $num): Response
     {
         if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices");
+            throw new Exception("Can not roll more than 99 dices");
         }
 
         $diceRoll = [];
@@ -128,6 +129,7 @@ class DiceGameController extends AbstractController
 
         return $this->render('pig/test/roll_many.html.twig', $data);
     }
+
     #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]
     public function testDiceHand(int $num): Response
     {
