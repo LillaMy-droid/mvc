@@ -31,7 +31,7 @@ class Bank
     * drawn cards and the final points for the bank.
     *
     * @param DeckOfCards $deck The deck to draw cards from
-    * @param class Game $game The game instance used to calculate points
+    * @param Game $game The game instance used to calculate points
     * @return array{cards: Card[], points: int} An array with drawn cards and final points
     */
     public function playTurn(DeckOfCards $deck, Game $game): array

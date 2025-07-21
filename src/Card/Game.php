@@ -45,7 +45,7 @@ class Game
     *
     * @param CardHand $bankHand Current hand of cards from bank
     * @param CardHand $playerHand Current hand of cards from player
-    * @return str Return a string of who the winner is
+    * @return string Return a string of who the winner is
      */
 
     public function getWinner(CardHand $bankHand, CardHand $playerHand): string

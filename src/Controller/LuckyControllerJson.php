@@ -29,6 +29,7 @@ class LuckyControllerJson
     public function jsonQuote(): Response
     {
         $number = random_int(1, 3);
+        $quote = "";
         if ($number === 1) {
             $quote = "Vad kallar man en hund som kan trolla? - En labra-kadabra-dor!";
         }
