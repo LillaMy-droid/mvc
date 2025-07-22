@@ -13,13 +13,13 @@ use App\Card\DeckOfCards;
  */
 class GameTest extends TestCase
 {
-    public function testCreateGame()
+    public function testCreateGame(): void
     {
         $game = new Game();
         $this->assertInstanceOf(\App\Card\Game::class, $game);
     }
 
-    public function testPoints()
+    public function testPoints(): void
     {
         $hand = new CardHand();
         $card1 = new Card();
@@ -38,7 +38,7 @@ class GameTest extends TestCase
         $this->assertEquals(10, $points);
     }
 
-    public function testPointsAce()
+    public function testPointsAce(): void
     {
 
         $card1 = new Card();
@@ -62,7 +62,7 @@ class GameTest extends TestCase
         $this->assertEquals(16, $points);
     }
 
-    public function testGetWinnerEqualPoints()
+    public function testGetWinnerEqualPoints(): void
     {
         $player = new CardHand();
         $bank = new CardHand();
@@ -90,7 +90,7 @@ class GameTest extends TestCase
         $this->assertEquals("Bank Wins", $game->getWinner($bank, $player));
     }
 
-    public function testGetWinnerBank()
+    public function testGetWinnerBank(): void
     {
         $player = new CardHand();
         $bank = new CardHand();
@@ -118,7 +118,7 @@ class GameTest extends TestCase
         $this->assertEquals("Bank Wins", $game->getWinner($bank, $player));
     }
 
-    public function testGetWinnerPlayer()
+    public function testGetWinnerPlayer(): void
     {
         $player = new CardHand();
         $bank = new CardHand();
@@ -146,7 +146,7 @@ class GameTest extends TestCase
         $this->assertEquals("Player Wins", $game->getWinner($bank, $player));
     }
 
-    public function testGetWinnerAbove21()
+    public function testGetWinnerAbove21(): void
     {
         $player = new CardHand();
         $bank = new CardHand();
@@ -173,7 +173,7 @@ class GameTest extends TestCase
 
         $this->assertEquals("Bank Wins", $game->getWinner($bank, $player));
     }
-    public function testGetWinnerBankAbove21()
+    public function testGetWinnerBankAbove21(): void
     {
         $player = new CardHand();
         $bank = new CardHand();
