@@ -33,7 +33,7 @@ class CardGameController extends AbstractController
         $session->clear();
         if (count($session->all()) <= 0) {
             $this->addFlash('success', "Session destroyed successfully");
-        } elseif (count($session->all()) > 0) {
+        } elseif (count($session->all()) >= 1) {
             $this->addFlash('error', "Session NOT destroyed successfully");
         }
         return $this->render('/card/session_delete.html.twig');
@@ -87,9 +87,9 @@ class CardGameController extends AbstractController
         }
         $graphCards = new cardGraphic();
         $card = $deck->drawCard();
-        if ($card === null) {
+        if (!$card) {
             $this->addFlash('error', "Deck is now empty");
-        } elseif (!$card === null) {
+        } elseif ($card) {
             $drawnCards[] = $card;
             $graph = $graphCards->cardGraphic($card);
 
