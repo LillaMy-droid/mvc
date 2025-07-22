@@ -14,7 +14,7 @@ use App\Card\DeckOfCards;
  */
 class BankTest extends TestCase
 {
-    public function testClass()
+    public function testClass(): void
     {
         $bank = new Bank();
 
@@ -22,7 +22,7 @@ class BankTest extends TestCase
         $this->assertCount(0, $bank->getHand()->getHand());
     }
 
-    public function testPlayTurn()
+    public function testPlayTurn(): void
     {
         $deck = new DeckOfCards();
         $game = new Game();
@@ -32,7 +32,7 @@ class BankTest extends TestCase
         $this->assertEquals(19, $bank->playTurn($deck, $game)['points']);
     }
 
-    public function testGetHand()
+    public function testGetHand(): void
     {
         $bank = new Bank();
 
@@ -43,7 +43,7 @@ class BankTest extends TestCase
 
     }
 
-    public function testEmptyDeck()
+    public function testEmptyDeck(): void
     {
         $deck = $this->createMock(DeckOfCards::class);
         $deck->method('drawCard')->willReturn(null);
@@ -58,7 +58,7 @@ class BankTest extends TestCase
     }
 
 
-    public function testStop17Points()
+    public function testStop17Points(): void
     {
         $deck = new DeckOfCards();
         $game = $this->createMock(Game::class);
