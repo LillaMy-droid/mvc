@@ -45,6 +45,11 @@ class LuckyControllerJson
             'dagens datum ' => date("Y/m/d"),
             'och tiden ' => date("h:i:s")
         ];
-        return new JsonResponse($data, json: JSON_PRETTY_PRINT);
+        
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 }
