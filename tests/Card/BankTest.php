@@ -53,8 +53,6 @@ class BankTest extends TestCase
 
         $result = $bank->playTurn($deck, $game);
 
-
-        $this->assertIsArray($result);
         $this->assertEquals(0, $result['points']);
         $this->assertEmpty($result['cards']);
     }
