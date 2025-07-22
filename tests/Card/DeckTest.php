@@ -13,14 +13,14 @@ use App\Card\DeckOfCards;
  */
 class DeckTest extends TestCase
 {
-    public function testInit()
+    public function testInit(): void
     {
         $deck = new DeckOfCards();
         $this->assertCount(52, $deck->getDeck());
         $this->assertInstanceOf(DeckOfCards::class, $deck);
     }
 
-    public function testCountDeck()
+    public function testCountDeck(): void
     {
         $deck = new DeckOfCards();
         $deck2 = new DeckOfCards();
@@ -30,7 +30,7 @@ class DeckTest extends TestCase
         $this->assertEquals(51, $deck2->countDeck());
     }
 
-    public function testDrawCard()
+    public function testDrawCard(): void
     {
         $deck = new DeckOfCards();
 
@@ -40,7 +40,7 @@ class DeckTest extends TestCase
         $this->assertNull($deck->drawCard());
     }
 
-    public function testDrawMultipleCards()
+    public function testDrawMultipleCards(): void
     {
         $deck = new DeckOfCards();
         $cards = $deck->drawMultipleCard(5);
@@ -55,7 +55,7 @@ class DeckTest extends TestCase
         $this->assertCount(0, $deck2->getDeck());
     }
 
-    public function testSorted()
+    public function testSorted(): void
     {
         $sorted = new DeckOfCards();
         $deck = new DeckOfCards();
@@ -68,7 +68,7 @@ class DeckTest extends TestCase
         $this->assertNotEquals($deck, $sorted);
     }
 
-    public function testDrawnCards()
+    public function testDrawnCards(): void
     {
         $deck = new DeckOfCards();
 

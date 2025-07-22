@@ -13,13 +13,13 @@ use App\Card\DeckOfCards;
  */
 class CardTest extends TestCase
 {
-    public function testCard()
+    public function testCard(): void
     {
         $card = new Card();
 
         $this->assertInstanceOf(\App\Card\Card::class, $card);
     }
-    public function testCardValues()
+    public function testCardValues(): void
     {
         $card = new Card();
         $card->setValue(2);
@@ -30,7 +30,7 @@ class CardTest extends TestCase
         $this->assertEquals(2, $card->getColor());
     }
 
-    public function testCardGraphic()
+    public function testCardGraphic(): void
     {
         $card1 = new Card();
         $card1->setValue(2);
@@ -61,7 +61,7 @@ class CardTest extends TestCase
 
     }
 
-    public function testCardGraphicString()
+    public function testCardGraphicString(): void
     {
         $card1 = new Card();
         $card1->setValue(2);
