@@ -1,18 +1,20 @@
-{% extends "../base.html.twig" %}
+{% extends '../base.html.twig' %}
 
-{% block title %}Cardgame{% endblock %}
+{% block title %}Library{% endblock %}
 
-{% block main %}
+{% block body %}
+
 <div class="two-col-layout"> 
     <aside class="aside">
         <h1>Innehåll</h1>
         <ul class="button">
-            <li><a href="{{ path('card_home') }}">Card</a></li>
-            <li><a href="{{ path('session_info') }}">Session</a></li>
-            <li><a href="{{ path('session_delete') }}">Session Delete</a></li>
-            <li><a href="{{ path('show_deck') }}">Deck</a></li>
-            <li><a href="{{ path('shuffle') }}">Shuffle</a></li>
-            <li><a href="{{ path('draw_card') }}">Draw</a></li>
+            <li><a href="{{ path('card_home') }}">Library</a></li>
+            <li><a href="{{ path('session_info') }}">Add book</a></li>
+            <li><a href="{{ path('session_delete') }}">Read about</a></li>
+            <li><a href="{{ path('show_deck') }}">Read all</a></li>
+            <li><a href="{{ path('shuffle') }}">Update</a></li>
+            <li><a href="{{ path('draw_card') }}">Delete book</a></li>
+            <li><a href="{{ path('draw_card') }}">Reset database</a></li>
         </ul>
     </aside>  
     <main class="main">
@@ -35,5 +37,4 @@
         </div>
     </main>
 </div>
-
 {% endblock %}
