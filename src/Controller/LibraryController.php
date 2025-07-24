@@ -68,10 +68,57 @@ final class LibraryController extends AbstractController
     }
 
     #[Route('/library/update', name: 'update_book')]
-    public function update(): Response
+    public function update(LibraryRepository $libraryRepository): Response
     {
-        return $this->render('library/update.html.twig');
+        $library = $libraryRepository->findAll();
+
+        return $this->render('library/update.html.twig', [
+            'library' => $library,
+        ]);
     }
+
+ 
+    #[Route('/library/update/form', name: 'update_book_form')]
+    public function updateForm(Request $request, LibraryRepository $libraryRepository): Response
+    {
+        $isbn = $request->query->get('ISBN');
+
+        if (!$isbn) {
+            throw $this->createNotFoundException('No ISBN provided');
+        }
+
+        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+
+        if (!$book) {
+            throw $this->createNotFoundException('Book not found for ISBN: ' . $isbn);
+        }
+
+        return $this->render('library/update_book.html.twig', [
+            'book' => $book,
+        ]);
+    }
+
+    
+    #[Route('/library/update/save/{ISBN}', name: 'update_book_save', methods: ['POST'])]
+    public function updateSave(Request $request, LibraryRepository $libraryRepository, ManagerRegistry $doctrine, string $ISBN): Response
+    {
+        $book = $libraryRepository->findOneBy(['ISBN' => $ISBN]);
+        $entityManager = $doctrine->getManager();
+
+        if (!$book) {
+            throw $this->createNotFoundException('Book not found');
+        }
+
+        $book->setTitel($request->request->get('titel'));
+        $book->setAuthor($request->request->get('author'));
+        $book->setImage($request->request->get('image'));
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('update_book');
+    }
+
 
     #[Route('/library/delete', name: 'delete_book_choose')]
     public function delete_book(LibraryRepository $libraryRepository): Response

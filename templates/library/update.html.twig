@@ -3,16 +3,15 @@
 {% block title %}Delete book{% endblock %}
 
 {% block main %}
-    <h2>Update book from library</h2>
 
-    <form action="submit" method="post">
-    <label for="library">Choose a book in the list to delete from library</label>
-    <select id="library">
-    {% for book in library %}
-        <option name="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
-    {% endfor %}
-    </select>
-
-    <input type="submit">
-
+<h1>Choose book to update</h1>
+    <form action="{{ path('update_book_form') }}" method="GET">
+        <label for="ISBN">Välj bok:</label>
+        <select name="ISBN" id="ISBN">
+            {% for book in library %}
+                <option value="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Update book</button>
+    </form>
 {% endblock %}
