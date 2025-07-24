@@ -35,7 +35,7 @@ class Card
     }
     /**
     * Returns card as an array.
-    * 
+    *
     * @return int[] Array with value and color as integers.
     */
     public function getCard(): array

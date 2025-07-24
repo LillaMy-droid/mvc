@@ -45,7 +45,7 @@ class LuckyControllerJson
             'dagens datum ' => date("Y/m/d"),
             'och tiden ' => date("h:i:s")
         ];
-        
+
         $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT

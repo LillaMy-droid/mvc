@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\Library;
+use Doctrine\Persistence\ManagerRegistry;
 
 final class LibraryController extends AbstractController
 {
@@ -19,9 +21,27 @@ final class LibraryController extends AbstractController
     #[Route('/library/create', name: 'create_book')]
     public function create(): Response
     {
-        return $this->render('library/create.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        return $this->render('library/create.html.twig');
+    }
+
+    #[Route('/library/create/book', name: 'create_book_form', methods: ['POST'])]
+    public function create_book(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $entityManager = $doctrine->getManager();
+
+        $book = new Library();
+
+        $book->setTitel($request->request->get('titel'));
+        $book->setISBN($request->request->get('ISBN'));
+        $book->setAuthor($request->request->get('author'));
+
+        $entityManager->persist($book);
+
+        $entityManager->flush();
+        return $this->render(
+            'library/create.html.twig',
+            ['message' => "Book added to library"]
+        );
     }
 
     #[Route('/library/read/{id}', name: 'read_book')]

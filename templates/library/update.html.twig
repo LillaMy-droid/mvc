@@ -1,0 +1,18 @@
+{% extends '../base.html.twig' %}
+
+{% block title %}Delete book{% endblock %}
+
+{% block body %}
+    <h2>Update book from library</h2>
+
+    <form action="submit" method="post">
+    <label for="library">Choose a book in the list to delete from library</label>
+    <select id="library">
+    {% for book in library %}
+        <option name="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
+    {% endfor %}
+    </select>
+
+    <input type="submit">
+
+{% endblock %}
