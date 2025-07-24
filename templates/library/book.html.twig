@@ -1,0 +1,28 @@
+{% extends '../base.html.twig' %}
+
+{% block title %}Book{% endblock %}
+
+{% block body %}
+
+    <table>
+        <tr>
+            <th>Titel</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Cover</th>
+        </tr>
+        <tr>
+            <td>{{ book.titel }}</td>
+            <td>{{ book.author }}</td>
+            <td><a href="{{ path('read_book', {isbn: book.ISBN}) }}">{{ book.ISBN }}</a></td>
+            <td>
+            {% if book.image %}
+                <img src="{{ book.image }}" alt="Cover" width="80">
+            {% else %}
+                No image
+            {% endif %}
+            </td>
+        </tr>
+    </table>
+
+{% endblock %}

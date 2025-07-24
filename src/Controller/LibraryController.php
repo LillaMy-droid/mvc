@@ -13,9 +13,7 @@ final class LibraryController extends AbstractController
     #[Route('/library', name: 'library_home')]
     public function index(): Response
     {
-        return $this->render('library/index.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        return $this->render('library/index.html.twig');
     }
 
     #[Route('/library/create', name: 'create_book')]
@@ -62,32 +60,46 @@ final class LibraryController extends AbstractController
     public function read(LibraryRepository $libraryRepository): Response
     {
         $library = $libraryRepository->findAll();
-        
-        return $this->render('library/library.html.twig',
-        ['library' => $library]);
+
+        return $this->render(
+            'library/library.html.twig',
+            ['library' => $library]
+        );
     }
 
     #[Route('/library/update', name: 'update_book')]
     public function update(): Response
     {
-        return $this->render('library/update.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        return $this->render('library/update.html.twig');
     }
 
-    #[Route('/library/delete', name: 'delete_book')]
-    public function delete(): Response
+    #[Route('/library/delete', name: 'delete_book_choose')]
+    public function delete_book(LibraryRepository $libraryRepository): Response
     {
-        return $this->render('library/delete.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        $library = $libraryRepository->findAll();
+
+        return $this->render('library/delete.html.twig',
+        ['library' => $library ]);
     }
 
-    #[Route('/library/reset', name: 'reset_library')]
-    public function reset(): Response
+
+    #[Route('/library/delete/{isbn}', name: 'delete_book_isbn', methods: ['POST'])]
+    public function delete(ManagerRegistry $doctrine, Request $request): Response
     {
-        return $this->render('library/reset.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        $isbn = $request->request->get('isbn');
+
+        $entityManager = $doctrine->getManager();
+        $book = $entityManager->getRepository(Library::class)->find($isbn);
+
+        if (!$book) {
+            throw $this->createNotFoundException(
+                'No book found for isbn '.$isbn
+            );
+        }
+
+        $entityManager->remove($book);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('read_many');
     }
 }

@@ -13,7 +13,7 @@ class LibraryJson extends AbstractController
 {
     #[Route("api/library/book")]
     public function seeAllBooks(LibraryRepository $libraryRepository): Response
-    {     
+    {
         $books = $libraryRepository->findAll();
 
         $response = new JsonResponse($books);
@@ -29,7 +29,7 @@ class LibraryJson extends AbstractController
         $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
 
         if (!book) {
-            return $this->json(['error'=> 'Book not found'], 404);
+            return $this->json(['error' => 'Book not found'], 404);
         }
 
         $data = [

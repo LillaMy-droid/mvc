@@ -5,11 +5,11 @@
 {% block body %}
     <h2>Delete book from library</h2>
 
-    <form action="submit" method="post">
+    <form action="" method="post">
     <label for="library">Choose a book in the list to delete from library</label>
-    <select id="library">
+    <select name="isbn">
     {% for book in library %}
-        <option name="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
+        <option value="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
     {% endfor %}
     </select>
 
