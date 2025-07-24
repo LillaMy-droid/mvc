@@ -39,6 +39,7 @@ class CardGameControllerJson
         );
         return $response;
     }
+    
     #[Route("api/deck/shuffle")]
     public function jsonShuffle(SessionInterface $session): Response
     {

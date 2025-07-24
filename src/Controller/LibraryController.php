@@ -44,20 +44,27 @@ final class LibraryController extends AbstractController
         );
     }
 
-    #[Route('/library/read/{id}', name: 'read_book')]
-    public function read_id(): Response
+    #[Route('/library/read/{isbn}', name: 'read_book')]
+    public function readBook(string $isbn, LibraryRepository $libraryRepository): Response
     {
-        return $this->render('library/index.html.twig', [
-            'controller_name' => 'LibraryController',
+        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+
+        if (!$book) {
+            throw $this->createNotFoundException('Book not found');
+        }
+
+        return $this->render('library/book.html.twig', [
+            'book' => $book,
         ]);
     }
 
     #[Route('/library/read', name: 'read_many')]
-    public function read(): Response
+    public function read(LibraryRepository $libraryRepository): Response
     {
-        return $this->render('library/index.html.twig', [
-            'controller_name' => 'LibraryController',
-        ]);
+        $library = $libraryRepository->findAll();
+        
+        return $this->render('library/library.html.twig',
+        ['library' => $library]);
     }
 
     #[Route('/library/update', name: 'update_book')]
