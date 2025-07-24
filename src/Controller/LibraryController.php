@@ -21,8 +21,10 @@ final class LibraryController extends AbstractController
     #[Route('/library/create', name: 'create_book')]
     public function create(): Response
     {
-        return $this->render('library/create.html.twig', 
-            ['message' => ""]);
+        return $this->render(
+            'library/create.html.twig',
+            ['message' => ""]
+        );
     }
 
     #[Route('/library/create/book', name: 'create_book_form', methods: ['POST'])]
@@ -77,7 +79,7 @@ final class LibraryController extends AbstractController
         ]);
     }
 
- 
+
     #[Route('/library/update/form', name: 'update_book_form')]
     public function updateForm(Request $request, LibraryRepository $libraryRepository): Response
     {
@@ -98,7 +100,7 @@ final class LibraryController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/library/update/save/{ISBN}', name: 'update_book_save', methods: ['POST'])]
     public function updateSave(Request $request, LibraryRepository $libraryRepository, ManagerRegistry $doctrine, string $ISBN): Response
     {
@@ -125,8 +127,10 @@ final class LibraryController extends AbstractController
     {
         $library = $libraryRepository->findAll();
 
-        return $this->render('library/delete.html.twig',
-        ['library' => $library ]);
+        return $this->render(
+            'library/delete.html.twig',
+            ['library' => $library ]
+        );
     }
 
     #[Route('/library/delete/chosen', name: 'delete_book_isbn', methods: ['POST'])]

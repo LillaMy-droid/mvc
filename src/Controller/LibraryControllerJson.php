@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Library;
 use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LibraryControllerJson extends AbstractController
 {
@@ -28,7 +29,7 @@ class LibraryControllerJson extends AbstractController
     {
         $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
 
-        if (!book) {
+        if (!$book) {
             return $this->json(['error' => 'Book not found'], 404);
         }
 
