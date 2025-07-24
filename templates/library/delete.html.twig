@@ -1,13 +1,13 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Delete book{% endblock %}
 
-{% block body %}
+{% block main %}
     <h2>Delete book from library</h2>
 
-    <form action="" method="post">
+    <form action="{{ path('delete_book_isbn') }}" method="post">
     <label for="library">Choose a book in the list to delete from library</label>
-    <select name="isbn">
+    <select id="library" name="isbn">
     {% for book in library %}
         <option value="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
     {% endfor %}

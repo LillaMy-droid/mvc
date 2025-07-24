@@ -9,7 +9,7 @@ use App\Entity\Library;
 use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class LibraryJson extends AbstractController
+class LibraryControllerJson extends AbstractController
 {
     #[Route("api/library/book")]
     public function seeAllBooks(LibraryRepository $libraryRepository): Response

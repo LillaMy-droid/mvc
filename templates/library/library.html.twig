@@ -1,30 +1,38 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Library{% endblock %}
 
-{% block body %}
+{% block main %}
 
-    <table>
+<table>
+<thead>All books in library</thead>
+    <tr>
+        <th>Titel</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Cover</th>
+    </tr>
+
+    {% if library is empty %}
         <tr>
-            <th>Titel</th>
-            <th>Author</th>
-            <th>ISBN</th>
-            <th>Cover</th>
+            <td colspan="4">No books found in the library.</td>
         </tr>
-        {% for book in library %}
-            <tr>
-                <td>{{ book.titel }}</td>
-                <td>{{ book.author }}</td>
-                <td><a href="{{ path('read_book', {isbn: book.ISBN}) }}">{{ book.ISBN }}</a></td>
-                <td>
+    {% endif %}
+
+    {% for book in library %}
+        <tr>
+            <td>{{ book.titel }}</td>
+            <td>{{ book.author }}</td>
+            <td><a href="{{ path('read_book', {isbn: book.ISBN}) }}">{{ book.ISBN }}</a></td>
+            <td>
                 {% if book.image %}
                     <img src="{{ book.image }}" alt="Cover" width="80">
                 {% else %}
                     No image
                 {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
 
 {% endblock %}

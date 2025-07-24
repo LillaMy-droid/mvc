@@ -1,4 +1,4 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Library{% endblock %}
 
@@ -8,31 +8,17 @@
     <aside class="aside">
         <h1>Innehåll</h1>
         <ul class="button">
-            <li><a href="{{ path('card_home') }}">Library</a></li>
-            <li><a href="{{ path('session_info') }}">Add book</a></li>
-            <li><a href="{{ path('session_delete') }}">Read about</a></li>
-            <li><a href="{{ path('show_deck') }}">Read all</a></li>
-            <li><a href="{{ path('shuffle') }}">Update</a></li>
-            <li><a href="{{ path('draw_card') }}">Delete book</a></li>
-            <li><a href="{{ path('draw_card') }}">Reset database</a></li>
+            <li><a href="{{ path('library_home') }}">Library</a></li>
+            <li><a href="{{ path('create_book') }}">Add book</a></li>
+            <li><a href="{{ path('read_many') }}">Read all</a></li>
+            <li><a href="{{ path('update_book') }}">Update</a></li>
+            <li><a href="{{ path('delete_book_choose') }}">Delete book</a></li>
         </ul>
     </aside>  
     <main class="main">
         <div class="mainblock">
             <article class="article">
             
-                <h2>Klassstruktur</h2>
-                    <p>
-                        Det här projektet består av ett objektorienterat system för att hantera en kortlek. Systemet är uppdelat i tre huvudklasser:
-                    </p>
-
-                <ul>
-                    <li><strong>Card</strong>: Representerar ett enskilt spelkort. Har attributen <code>value</code> (1-12) och <code>color</code> (1-4). Innehåller metoder för att sätta och hämta dessa värden.</li>
-                    <li><strong>DeckOfCards</strong>: Ärver från <code>Card</code>, men fungerar som en container för 52 kort. Har metoder för att blanda, sortera, dra ett eller flera kort, samt hämta dragna kort.</li>
-                    <li><strong>CardGraphic</strong>: Ärver från <code>Card</code>. Innehåller metoder för att konvertera ett kort till en grafisk representation (t.ex. "Queen ♥").</li>
-                </ul>
-                <img src="{{ asset('images/cardClass.png') }}" alt="UML-diagram for Card">
-
             </article>
         </div>
     </main>

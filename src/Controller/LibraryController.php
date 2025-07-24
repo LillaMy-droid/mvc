@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Library;
+use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 
 final class LibraryController extends AbstractController
 {
@@ -19,11 +21,12 @@ final class LibraryController extends AbstractController
     #[Route('/library/create', name: 'create_book')]
     public function create(): Response
     {
-        return $this->render('library/create.html.twig');
+        return $this->render('library/create.html.twig', 
+            ['message' => ""]);
     }
 
     #[Route('/library/create/book', name: 'create_book_form', methods: ['POST'])]
-    public function create_book(Request $request, ManagerRegistry $doctrine): Response
+    public function createBook(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
 
@@ -57,14 +60,11 @@ final class LibraryController extends AbstractController
     }
 
     #[Route('/library/read', name: 'read_many')]
-    public function read(LibraryRepository $libraryRepository): Response
+    public function readMany(LibraryRepository $libraryRepository): Response
     {
         $library = $libraryRepository->findAll();
 
-        return $this->render(
-            'library/library.html.twig',
-            ['library' => $library]
-        );
+        return $this->render('library/library.html.twig', ['library' => $library]);
     }
 
     #[Route('/library/update', name: 'update_book')]
@@ -82,14 +82,13 @@ final class LibraryController extends AbstractController
         ['library' => $library ]);
     }
 
-
-    #[Route('/library/delete/{isbn}', name: 'delete_book_isbn', methods: ['POST'])]
+    #[Route('/library/delete/chosen', name: 'delete_book_isbn', methods: ['POST'])]
     public function delete(ManagerRegistry $doctrine, Request $request): Response
     {
         $isbn = $request->request->get('isbn');
 
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($isbn);
+        $book = $entityManager->getRepository(Library::class)->findOneBy(['ISBN' => $isbn]);
 
         if (!$book) {
             throw $this->createNotFoundException(

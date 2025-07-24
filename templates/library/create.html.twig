@@ -1,9 +1,9 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Library{% endblock %}
 
 {% block main %}
-    <form method="POST" action="library/create/book">
+    <form method="POST" action="{{ path('create_book_form') }}">
         <label for="titel">Titel of book</label>
         <input id="titel" class="styled-input" name="titel" type="text"><br><br>
 

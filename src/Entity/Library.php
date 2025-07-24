@@ -22,7 +22,7 @@ class Library
     #[ORM\Column(length: 255)]
     private ?string $author = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     public function getId(): ?int
