@@ -14,7 +14,7 @@ class LibraryControllerJson extends AbstractController
 {
     #[Route("api/library/book")]
     public function seeAllBooks(LibraryRepository $libraryRepository): Response
-    {            
+    {
         $books = $libraryRepository->findAll();
 
         $data = [];

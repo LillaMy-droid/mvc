@@ -481,21 +481,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_number"
         },                {
-            "fqsen": "\\App\\Controller\\ProductController",
-            "name": "ProductController",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\ProductController\u003A\u003AcreateProduct\u0028\u0029",
-            "name": "createProduct",
-            "summary": "",
-            "url": "classes/App-Controller-ProductController.html#method_createProduct"
-        },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
             "summary": "",
@@ -586,11 +571,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html"
         },                {
-            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetId\u0028\u0029",
-            "name": "getId",
-            "summary": "",
-            "url": "classes/App-Entity-Library.html#method_getId"
-        },                {
             "fqsen": "\\App\\Entity\\Library\u003A\u003AgetTitel\u0028\u0029",
             "name": "getTitel",
             "summary": "",
@@ -601,15 +581,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html#method_setTitel"
         },                {
-            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetISBN\u0028\u0029",
-            "name": "getISBN",
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AgetIsbn\u0028\u0029",
+            "name": "getIsbn",
             "summary": "",
-            "url": "classes/App-Entity-Library.html#method_getISBN"
+            "url": "classes/App-Entity-Library.html#method_getIsbn"
         },                {
-            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetISBN\u0028\u0029",
-            "name": "setISBN",
+            "fqsen": "\\App\\Entity\\Library\u003A\u003AsetIsbn\u0028\u0029",
+            "name": "setIsbn",
             "summary": "",
-            "url": "classes/App-Entity-Library.html#method_setISBN"
+            "url": "classes/App-Entity-Library.html#method_setIsbn"
         },                {
             "fqsen": "\\App\\Entity\\Library\u003A\u003AgetAuthor\u0028\u0029",
             "name": "getAuthor",
@@ -631,20 +611,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html#method_setImage"
         },                {
-            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024id",
-            "name": "id",
-            "summary": "",
-            "url": "classes/App-Entity-Library.html#property_id"
-        },                {
             "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024titel",
             "name": "titel",
             "summary": "",
             "url": "classes/App-Entity-Library.html#property_titel"
         },                {
-            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024ISBN",
-            "name": "ISBN",
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024Isbn",
+            "name": "Isbn",
             "summary": "",
-            "url": "classes/App-Entity-Library.html#property_ISBN"
+            "url": "classes/App-Entity-Library.html#property_Isbn"
         },                {
             "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024author",
             "name": "author",
