@@ -14,33 +14,47 @@ class LibraryControllerJson extends AbstractController
 {
     #[Route("api/library/book")]
     public function seeAllBooks(LibraryRepository $libraryRepository): Response
-    {
+    {            
         $books = $libraryRepository->findAll();
 
-        $response = new JsonResponse($books);
+        $data = [];
+
+        foreach ($books as $book) {
+            $data[] = [
+                'titel' => $book->getTitel(),
+                'author' => $book->getAuthor(),
+                'ISBN' => $book->getISBN(),
+                'image' => null,
+            ];
+        }
+
+        $response = new JsonResponse($data);
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT
         );
         return $response;
     }
 
-    #[Route("api/library/book/{isbn}")]
-    public function seeOneBook(LibraryRepository $libraryRepository, string $isbn): Response
+    #[Route("api/library/book/{Isbn}")]
+    public function seeOneBook(LibraryRepository $libraryRepository, string $Isbn): Response
     {
-        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+        $book = $libraryRepository->findOneBy(['Isbn' => $Isbn]);
 
         if (!$book) {
             return $this->json(['error' => 'Book not found'], 404);
         }
 
         $data = [
-            'id' => $book->getId(),
             'titel' => $book->getTitel(),
             'author' => $book->getAuthor(),
             'ISBN' => $book->getISBN(),
-            'image' => $book->getImage(),
+            'image' => null,
         ];
-        return new JsonResponse($data, 200, [], JSON_PRETTY_PRINT);
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
 
 }

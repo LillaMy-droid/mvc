@@ -5,18 +5,15 @@
 {% block main %}
     <h1>Update Book</h1>
 
-    <form action="{{ path('update_book_save', {ISBN: book.ISBN}) }}" method="POST">
+    <form action="{{ path('update_book_save', {Isbn: book.Isbn}) }}" method="POST">
         <label for="titel">Titel:</label>
         <input type="text" id="titel" name="titel" value="{{ book.titel }}" required><br>
 
         <label for="author">Author:</label>
         <input type="text" id="author" name="author" value="{{ book.author }}" required><br>
 
-        <label for="ISBN">ISBN:</label>
-        <input type="text" id="ISBN" name="ISBN" value="{{ book.ISBN }}" readonly><br>
-
-        <label for="image">Image URL:</label>
-        <input type="text" id="image" name="image" value="{{ book.image }}"><br>
+        <label for="Isbn">Isbn:</label>
+        <input type="text" id="Isbn" name="Isbn" value="{{ book.Isbn }}" readonly><br>
 
         <button type="submit">Save Changes</button>
     </form>

@@ -35,8 +35,14 @@ final class LibraryController extends AbstractController
         $book = new Library();
 
         $book->setTitel($request->request->get('titel'));
-        $book->setISBN($request->request->get('ISBN'));
+        $book->setIsbn($request->request->get('Isbn'));
         $book->setAuthor($request->request->get('author'));
+
+        $imageFile = $request->files->get('image');
+        if ($imageFile) {
+            $imageData = file_get_contents($imageFile->getPathname());
+            $book->setImage($imageData);
+        }
 
         $entityManager->persist($book);
 
@@ -47,10 +53,10 @@ final class LibraryController extends AbstractController
         );
     }
 
-    #[Route('/library/read/{isbn}', name: 'read_book')]
-    public function readBook(string $isbn, LibraryRepository $libraryRepository): Response
+    #[Route('/library/read/{Isbn}', name: 'read_book')]
+    public function readBook(string $Isbn, LibraryRepository $libraryRepository): Response
     {
-        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+        $book = $libraryRepository->findOneBy(['Isbn' => $Isbn]);
 
         if (!$book) {
             throw $this->createNotFoundException('Book not found');
@@ -83,16 +89,16 @@ final class LibraryController extends AbstractController
     #[Route('/library/update/form', name: 'update_book_form')]
     public function updateForm(Request $request, LibraryRepository $libraryRepository): Response
     {
-        $isbn = $request->query->get('ISBN');
+        $Isbn = $request->query->get('Isbn');
 
-        if (!$isbn) {
-            throw $this->createNotFoundException('No ISBN provided');
+        if (!$Isbn) {
+            throw $this->createNotFoundException('No Isbn provided');
         }
 
-        $book = $libraryRepository->findOneBy(['ISBN' => $isbn]);
+        $book = $libraryRepository->findOneBy(['Isbn' => $Isbn]);
 
         if (!$book) {
-            throw $this->createNotFoundException('Book not found for ISBN: ' . $isbn);
+            throw $this->createNotFoundException('Book not found for Isbn: ' . $Isbn);
         }
 
         return $this->render('library/update_book.html.twig', [
@@ -101,10 +107,10 @@ final class LibraryController extends AbstractController
     }
 
 
-    #[Route('/library/update/save/{ISBN}', name: 'update_book_save', methods: ['POST'])]
-    public function updateSave(Request $request, LibraryRepository $libraryRepository, ManagerRegistry $doctrine, string $ISBN): Response
+    #[Route('/library/update/save/{Isbn}', name: 'update_book_save', methods: ['POST'])]
+    public function updateSave(Request $request, LibraryRepository $libraryRepository, ManagerRegistry $doctrine, string $Isbn): Response
     {
-        $book = $libraryRepository->findOneBy(['ISBN' => $ISBN]);
+        $book = $libraryRepository->findOneBy(['Isbn' => $Isbn]);
         $entityManager = $doctrine->getManager();
 
         if (!$book) {
@@ -136,14 +142,14 @@ final class LibraryController extends AbstractController
     #[Route('/library/delete/chosen', name: 'delete_book_isbn', methods: ['POST'])]
     public function delete(ManagerRegistry $doctrine, Request $request): Response
     {
-        $isbn = $request->request->get('isbn');
+        $Isbn = $request->request->get('Isbn');
 
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->findOneBy(['ISBN' => $isbn]);
+        $book = $entityManager->getRepository(Library::class)->findOneBy(['Isbn' => $Isbn]);
 
         if (!$book) {
             throw $this->createNotFoundException(
-                'No book found for isbn '.$isbn
+                'No book found for Isbn '.$Isbn
             );
         }
 

@@ -6,10 +6,10 @@
 
 <h1>Choose book to update</h1>
     <form action="{{ path('update_book_form') }}" method="GET">
-        <label for="ISBN">Välj bok:</label>
-        <select name="ISBN" id="ISBN">
+        <label for="Isbn">Välj bok:</label>
+        <select name="Isbn" id="Isbn">
             {% for book in library %}
-                <option value="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
+                <option value="{{ book.Isbn }}">{{ book.titel }} By {{ book.author }}</option>
             {% endfor %}
         </select>
         <button type="submit">Update book</button>

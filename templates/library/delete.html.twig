@@ -7,9 +7,9 @@
 
     <form action="{{ path('delete_book_isbn') }}" method="post">
     <label for="library">Choose a book in the list to delete from library</label>
-    <select id="library" name="isbn">
+    <select id="library" name="Isbn">
     {% for book in library %}
-        <option value="{{ book.ISBN }}">{{ book.titel }} By {{ book.author }}</option>
+        <option value="{{ book.Isbn }}">{{ book.titel }} By {{ book.author }}</option>
     {% endfor %}
     </select>
 
