@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753675146">
-  <project timestamp="1753675146" name="Clover Coverage">
+<coverage generated="1753738190">
+  <project timestamp="1753738190" name="Clover Coverage">
     <package name="App\Card">
       <file name="/home/amli/dbwebb-kurser/mvc/me/report/src/Card/Bank.php">
         <class name="App\Card\Bank" namespace="App\Card">
