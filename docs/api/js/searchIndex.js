@@ -611,6 +611,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html#method_setImage"
         },                {
+            "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Library.html#property_id"
+        },                {
             "fqsen": "\\App\\Entity\\Library\u003A\u003A\u0024titel",
             "name": "titel",
             "summary": "",

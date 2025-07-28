@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LibraryRepository::class)]
 class Library
-{    
+{
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
