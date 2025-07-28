@@ -22,9 +22,11 @@
     </testsuites>
 
     <coverage>
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
+        <filter>
+            <include>
+                <directory suffix=".php">src</directory>
+            </include>
+        </filter>
     </coverage>
 
 </phpunit>
