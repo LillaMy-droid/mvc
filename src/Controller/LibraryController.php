@@ -33,16 +33,11 @@ final class LibraryController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $book = new Library();
+        $titel = $request->request->get("titel");
 
-        $book->setTitel($request->request->get('titel'));
+        $book->setTitel($titel);
         $book->setIsbn($request->request->get('Isbn'));
         $book->setAuthor($request->request->get('author'));
-
-        $imageFile = $request->files->get('image');
-        if ($imageFile) {
-            $imageData = file_get_contents($imageFile->getPathname());
-            $book->setImage($imageData);
-        }
 
         $entityManager->persist($book);
 
@@ -85,7 +80,6 @@ final class LibraryController extends AbstractController
         ]);
     }
 
-
     #[Route('/library/update/form', name: 'update_book_form')]
     public function updateForm(Request $request, LibraryRepository $libraryRepository): Response
     {
@@ -106,7 +100,6 @@ final class LibraryController extends AbstractController
         ]);
     }
 
-
     #[Route('/library/update/save/{Isbn}', name: 'update_book_save', methods: ['POST'])]
     public function updateSave(Request $request, LibraryRepository $libraryRepository, ManagerRegistry $doctrine, string $Isbn): Response
     {
@@ -119,7 +112,6 @@ final class LibraryController extends AbstractController
 
         $book->setTitel($request->request->get('titel'));
         $book->setAuthor($request->request->get('author'));
-        $book->setImage($request->request->get('image'));
 
         $entityManager->persist($book);
         $entityManager->flush();

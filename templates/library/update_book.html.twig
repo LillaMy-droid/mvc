@@ -3,19 +3,37 @@
 {% block title %}Choose book{% endblock %}
 
 {% block main %}
-    <h1>Update Book</h1>
+<div class="two-col-layout"> 
+    <aside class="aside">
+        <h1>Innehåll</h1>
+        <ul class="button">
+            <li><a href="{{ path('library_home') }}">Library</a></li>
+            <li><a href="{{ path('create_book') }}">Add book</a></li>
+            <li><a href="{{ path('read_many') }}">Read all</a></li>
+            <li><a href="{{ path('update_book') }}">Update</a></li>
+            <li><a href="{{ path('delete_book_choose') }}">Delete book</a></li>
+        </ul>
+    </aside>  
+    <main class="main">
+        <div class="mainblock">
+            <article class="article">
+               <h1>Update Book</h1>
 
-    <form action="{{ path('update_book_save', {Isbn: book.Isbn}) }}" method="POST">
-        <label for="titel">Titel:</label>
-        <input type="text" id="titel" name="titel" value="{{ book.titel }}" required><br>
+                <form action="{{ path('update_book_save', {Isbn: book.Isbn}) }}" method="POST">
+                    <label for="titel">Titel:</label>
+                    <input type="text" id="titel" name="titel" value="{{ book.titel }}" required><br>
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" value="{{ book.author }}" required><br>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" value="{{ book.author }}" required><br>
 
-        <label for="Isbn">Isbn:</label>
-        <input type="text" id="Isbn" name="Isbn" value="{{ book.Isbn }}" readonly><br>
+                    <label for="Isbn">Isbn:</label>
+                    <input type="text" id="Isbn" name="Isbn" value="{{ book.Isbn }}" readonly><br>
 
-        <button type="submit">Save Changes</button>
-    </form>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </article>
+        </div>
+    </main>
+</div>
 {% endblock %}
 

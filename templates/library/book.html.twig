@@ -3,8 +3,21 @@
 {% block title %}Book{% endblock %}
 
 {% block main %}
-
-    <table>
+<div class="two-col-layout"> 
+    <aside class="aside">
+        <h1>Innehåll</h1>
+        <ul class="button">
+            <li><a href="{{ path('library_home') }}">Library</a></li>
+            <li><a href="{{ path('create_book') }}">Add book</a></li>
+            <li><a href="{{ path('read_many') }}">Read all</a></li>
+            <li><a href="{{ path('update_book') }}">Update</a></li>
+            <li><a href="{{ path('delete_book_choose') }}">Delete book</a></li>
+        </ul>
+    </aside>  
+    <main class="main">
+        <div class="mainblock">
+            <article class="article">
+                <table>
         <tr>
             <th>Titel</th>
             <th>Author</th>
@@ -24,5 +37,10 @@
             </td>
         </tr>
     </table>
+
+            </article>
+        </div>
+    </main>
+</div>
 
 {% endblock %}

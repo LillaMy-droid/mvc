@@ -3,16 +3,35 @@
 {% block title %}Delete book{% endblock %}
 
 {% block main %}
-    <h2>Delete book from library</h2>
 
-    <form action="{{ path('delete_book_isbn') }}" method="post">
-    <label for="library">Choose a book in the list to delete from library</label>
-    <select id="library" name="Isbn">
-    {% for book in library %}
-        <option value="{{ book.Isbn }}">{{ book.titel }} By {{ book.author }}</option>
-    {% endfor %}
-    </select>
+<div class="two-col-layout"> 
+    <aside class="aside">
+        <h1>Innehåll</h1>
+        <ul class="button">
+            <li><a href="{{ path('library_home') }}">Library</a></li>
+            <li><a href="{{ path('create_book') }}">Add book</a></li>
+            <li><a href="{{ path('read_many') }}">Read all</a></li>
+            <li><a href="{{ path('update_book') }}">Update</a></li>
+            <li><a href="{{ path('delete_book_choose') }}">Delete book</a></li>
+        </ul>
+    </aside>  
+    <main class="main">
+        <div class="mainblock">
+            <article class="article">
+                <h2>Delete book from library</h2>
 
-    <input type="submit">
+                <form action="{{ path('delete_book_isbn') }}" method="post">
+                    <label for="library">Choose a book in the list to delete from library</label>
+                    <select id="library" name="Isbn">
+                        {% for book in library %}
+                            <option value="{{ book.Isbn }}">{{ book.titel }} By {{ book.author }}</option>
+                        {% endfor %}
+                    </select>
+                <input type="submit">
+            </article>
+        </div>
+    </main>
+</div>
+
 
 {% endblock %}

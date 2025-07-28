@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250727011519 extends AbstractMigration
+final class Version20250727042614 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,7 +27,7 @@ final class Version20250727011519 extends AbstractMigration
             DROP TABLE library
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE library (titel VARCHAR(255) NOT NULL, isbn VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, image BLOB DEFAULT NULL, PRIMARY KEY(titel))
+            CREATE TABLE library (titel VARCHAR(255) NOT NULL, isbn VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, image VARCHAR(255) DEFAULT NULL, PRIMARY KEY(titel))
         SQL);
         $this->addSql(<<<'SQL'
             INSERT INTO library (titel, isbn, author, image) SELECT titel, isbn, author, image FROM __temp__library
@@ -47,7 +47,7 @@ final class Version20250727011519 extends AbstractMigration
             DROP TABLE library
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE library (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, titel VARCHAR(255) NOT NULL, isbn VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, image VARCHAR(255) DEFAULT NULL)
+            CREATE TABLE library (titel VARCHAR(255) NOT NULL, isbn VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, image BLOB DEFAULT NULL)
         SQL);
         $this->addSql(<<<'SQL'
             INSERT INTO library (titel, isbn, author, image) SELECT titel, isbn, author, image FROM __temp__library

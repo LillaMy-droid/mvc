@@ -3,22 +3,42 @@
 {% block title %}Library{% endblock %}
 
 {% block main %}
-    <form method="POST" action="{{ path('create_book_form') }}">
-        <label for="titel">Titel of book</label>
-        <input id="titel" class="styled-input" name="titel" type="text"><br><br>
 
-        <label for="author">Author</label>
-        <input id="author" class="styled-input" name="author" type="text"><br><br>
-        
-        <label for="Isbn">Isbn</label>
-        <input id="Isbn" class="styled-input" name="Isbn" type="text"><br><br>
+<div class="two-col-layout"> 
+    <aside class="aside">
+        <h1>Innehåll</h1>
+        <ul class="button">
+            <li><a href="{{ path('library_home') }}">Library</a></li>
+            <li><a href="{{ path('create_book') }}">Add book</a></li>
+            <li><a href="{{ path('read_many') }}">Read all</a></li>
+            <li><a href="{{ path('update_book') }}">Update</a></li>
+            <li><a href="{{ path('delete_book_choose') }}">Delete book</a></li>
+        </ul>
+    </aside>  
+    <main class="main">
+        <div class="mainblock">
+            <article class="article">
+                <form method="POST" action="{{ path('create_book_form') }}">
+                    <label for="titel">Titel of book</label>
+                    <input id="titel" class="styled-input" name="titel" type="text" required><br><br>
 
-        <button type="submit">Add book</button>
-    </form>
+                    <label for="author">Author</label>
+                    <input id="author" class="styled-input" name="author" type="text" required><br><br>
+                    
+                    <label for="Isbn">Isbn</label>
+                    <input id="Isbn" class="styled-input" name="Isbn" type="text" required><br><br>
 
-{% if message %}
-    <p>{{ message }}</p>
-{% endif %}
+                    <button type="submit">Add book</button>
+                </form>
+
+                {% if message %}
+                    <p>{{ message }}</p>
+                {% endif %}
+
+            </article>
+        </div>
+    </main>
+</div>
 
 {% endblock %}
 
