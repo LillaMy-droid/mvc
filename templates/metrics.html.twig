@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block main %}
+<div class="mainblock">
+    <h1>Metrics analysis</h1>
+    <h2>Introduktion</h2>
+        <h4>Code size</h4>
+            <p>Lines of code (LOC) or Logical lines of code (LLOC). LOC is how many lines are there in total of code.
+            LLOC refers to the lines of code that actually do something or that contains code. Meaning that lines that only contains curly brackets for example are counted in LOC but not LLOC.</p>
+        
+        <h4>Coverage</h4>
+            <p>Coverage is an indicator of how much of your code has been tested. If you have a 100% code coverage you have tests using every line of your code. However it doesn't mean that the code is well teste. Just that it all has been covered in at least one test. 
+            It could be an indication that the code is well testd but not a fact.</p>
+        
+        <h4>Complexity</h4>
+            <p>One way to measure the code is through complexity. Complexity means how many different 'decisions' or returns and functions could be taken through the code.
+            High complexity number means higher amount of decisions in the code.</p>
+        
+        <h4>Cohesion</h4>
+            <p>Cohesion is a way to measure the strength of a class and its methods. The methods should be accurate and do small tasks relevant to the class.
+                It is unwanted to have methods that use unrelated data to the class or methods that do not have much in common. If a code has high cohesion they could generally is easier maintained as 
+                changes in one class do not affect the whole code and should not lead to more changes having to be made in other classes or parts of the code.</p>
+        <h4>Coupling</h4>
+        <p>Generally you want your class to have low coupling to other classes. It means that it is loosely tied to other clases and do not use are not being used a lot in other classes.
+        Lower coupling makes it easier to make changes to the class as it doesn't have a lot of dependencies to other classes. </p>
+        
+        <h4>CRAP</h4>
+            <p>Stands for Change Risk Analyzer and Predictor. CRAP looks at how big the method is, how much of the method is tested and how coplex the method is.  </p>
+        <h4>Duplication</h4>
+            <p>An indication of DRY-code. If you hava a high duplication-score it means you have repeated functionality and methods a lot in your ode which is not wanted.
+            It is better to aim for a lower dulication and make sure that each line of code doesn't get repeated.</p>
+    <h2>Phpmetrics</h2>
+    <h2>Scrutinizer</h2>
+    <h2>Förbättringar</h2>
+    <h2>Diskussion</h2>
+</div>
+{% endblock %}

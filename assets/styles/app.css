@@ -64,6 +64,10 @@ h1 {
    font-weight: bolder;
 }
 
+ul {
+   list-style: none;
+}
+
 .navbar {
    grid-row-start: navbar;
    grid-row-end: main;

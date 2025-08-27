@@ -11,7 +11,7 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/", name: "home")]
     public function home(): Response
     {
-        return $this->render('card/home.html.twig');
+        return $this->render('home.html.twig');
     }
 
     #[Route("/about", name: "about")]
@@ -24,6 +24,13 @@ class LuckyControllerTwig extends AbstractController
     {
         return $this->render('report.html.twig');
     }
+    
+    #[Route('/api/view', name: 'api_view')]
+    public function api(): Response
+    {
+        return $this->render('api.html.twig');
+}
+
     #[Route("/lucky/number/twig", name: "lucky_number")]
     public function number(): Response
     {
@@ -34,5 +41,11 @@ class LuckyControllerTwig extends AbstractController
         ];
 
         return $this->render('lucky_number.html.twig', $data);
+    }
+
+    #[Route("/metrics", name: "metrics_report")]
+    public function metrics(): Response
+    {
+        return $this->render('metrics.html.twig');
     }
 }

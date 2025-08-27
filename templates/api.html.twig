@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Json startsida{% endblock %}
+
+{% block main %}
+<h1>Länkar till Api</h1>
+    <ul class="button">
+        <li><a href="/api">JSON Startsida</a></li>
+        <li><a href="/api/quote">Ordvits</a></li>
+        <li><a href="/api/deck">Sortera kortlek</a></li>
+        <li><a href="/api/shuffle">Blanda kortlek</a></li>
+        <li><a href="/api/draw">Dra kort</a></li>
+    </ul>
+{% endblock %}
