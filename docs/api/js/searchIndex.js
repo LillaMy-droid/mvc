@@ -196,6 +196,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-DeckSession.html#method_drawCardsFromDeck"
         },                {
+            "fqsen": "\\App\\Card\\DeckSession\u003A\u003AgetGraphicCards\u0028\u0029",
+            "name": "getGraphicCards",
+            "summary": "",
+            "url": "classes/App-Card-DeckSession.html#method_getGraphicCards"
+        },                {
             "fqsen": "\\App\\Card\\Game",
             "name": "Game",
             "summary": "Class\u0020has\u0020methods\u0020to\u0020play\u0020the\u0020game\u0020of\u002021.",

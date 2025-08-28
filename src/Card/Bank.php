@@ -45,7 +45,7 @@ class Bank
             }
 
             $card = $deck->drawCard();
-            if ($card === null) {
+            if ($card === 0) {
                 break;
             }
 
