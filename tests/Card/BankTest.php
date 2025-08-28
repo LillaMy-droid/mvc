@@ -46,7 +46,7 @@ class BankTest extends TestCase
     public function testEmptyDeck(): void
     {
         $deck = $this->createMock(DeckOfCards::class);
-        $deck->method('drawCard')->willReturn(null);
+        $deck->method('drawCard')->willReturn(0);
 
         $game = new Game();
         $bank = new Bank();
