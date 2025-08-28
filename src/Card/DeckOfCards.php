@@ -40,7 +40,7 @@ class DeckOfCards extends Card
         return $this->deck;
     }
 
-    public function drawCard(): ?Card
+    public function drawCard(): Card|int
     {
         if (empty($this->deck)) {
             return 0;
