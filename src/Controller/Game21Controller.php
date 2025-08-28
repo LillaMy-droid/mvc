@@ -71,6 +71,7 @@ class Game21Controller extends AbstractController
         }
 
         $points = $game->points($player);
+        $session->set('game', $game);
         if ($points > 21) {
             return $this->redirectToRoute('game_result');
         }
@@ -102,6 +103,7 @@ class Game21Controller extends AbstractController
 
         $session->set('deckOfCards', $deck);
         $session->set('player', $player);
+        $session->set('game', $game);
 
         $points = $game->points($player);
         if ($points > 21) {
@@ -123,8 +125,8 @@ class Game21Controller extends AbstractController
 
         $session->set('bank', $bank);
         $session->set('deckOfCards', $deck);
-
-        $session->set('bank_cards', $result['deckOfCards']);
+        $session->set('game', $game);
+        $session->set('bank_cards', $result['cards']);
         $session->set('bank_points', $result['points']);
 
 
@@ -139,9 +141,9 @@ class Game21Controller extends AbstractController
         $bankPoints = $session->get('bank_points');
         $deckSession = new DeckSession();
 
-        $playerCard = $deckSession->getGraphicCard($player);
+        $playerCard = $deckSession->getGraphicCards($player);
 
-        $bankCard = $deckSession->getGraphicCard($bank);
+        $bankCard = $deckSession->getGraphicCards($bank);
 
         $result = $game->getWinner($bank->getHand(), $player);
 

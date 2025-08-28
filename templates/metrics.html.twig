@@ -40,7 +40,7 @@
         <a href="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/"><img src="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/badges/coverage.png?b=main"></a>
         <a href="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/"><img src="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/badges/build.png?b=main"></a>
     
-        <p>Jag skulle viilja påstå att min kod är relativt robust. Det finns två funktioner som inte får A i rankning på grund av sin komplexitet. Här hade jag kunnat bryta upp funktioneerna i två mindre enbart för att få bättre 
+        <p>Jag skulle viilja påstå att min kod är relativt robust. Det finns två moduler som inte får A i rankning på grund av sin komplexitet. Här hade jag kunnat bryta upp funktioneerna i två mindre enbart för att få bättre 
         poäng i Scrutinizer. Det kommer jag däremot inte att göra då jag anser att funktionen fyller sitt syfte och för någon som kan programmering kan enkelt förstå syftet med koden. Det känns därför inte
         produktivt att bryta isär funktionen och jag tycker inte att det hade gett något positivt.<p>
 
@@ -48,12 +48,19 @@
 
         <p>Jag får höga CRAP poäng på mina controllers och det kan jag förstå. De har blivit i största laget jag hade kunnat simplifiera kontrollerna.</p>
     <h2>Förbättringar</h2>
+        <p>Jag fokuserade på de tre controllerna Game21, CardGame, och CardGameJson för mina förbättringar.Jag har brutit ut de delar som varit återkommande i en egen class
+        DeckSession för att göra koden mer Dry. Det gör controllerna mindre både i antalet rader och i komplexitet. I Scrutinizer rapporten har jag fått ner mina Crap-score
+        på alla tre controllerna. Jag har nu fått A i rankning på det moduler som tidigare hade B eftersom jaag nu har fått bort en stor del av komplexiteten.
     <h2>Diskussion</h2>
             <p>När man är mitt uppe i sitt kodande är det lätt att tänka att koden är tydlig och att man har gjort bra funktioner. Men det är inte säkert att en utomstående skulle hålla med om om en fick inblick i ens arbete.
             Man kan använda verktyg som dessa för att få en mer utomståendes perspektiv på det hela. Kanske är en funktion för komplex och bör brytas ut eller göras om? Eller så behöver den vara precis så men då kanske man behöver lägga fokus på sin dokumentation så
             att det är tydigt om man vid ett senare tillfälle ska återkomam till koden.</p>
 
             <p>När man har ett mätverktyg får man vara uppmärksam på vad som är rimligt för sin egen kod. Hade detta varit ett projekt som skulle driftsättas hade jag nog inte fokuserat på att förbättra
-            så att jag får A på alla mina funktioner i Scrutinizer. Däremot hade jag försökt få ner mitt CRAP score i controllerna samt jobbat med testfallen.
+            så att jag får A på alla mina funktioner i Scrutinizer. Däremot hade jag försökt få ner mitt CRAP score i controllerna samt jobbat med testfallen. Några av det förbättringar som jag gjorde blev till det bättre, men en del känns det
+            som om  jag mest skyfflade runt koden för att få bättre poäng men resultatet är detsamma.</p>
+
+            <p>Därför känns det inte alltid helt nödvändigt att följa de poäng man får utan göra en bedömning om koden behöver omstruktureras eller inte. Ger det verkligen
+            ett värde att jobba på det?</p>
 </div>
 {% endblock %}
