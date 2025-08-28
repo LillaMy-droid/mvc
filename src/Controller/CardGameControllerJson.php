@@ -12,6 +12,7 @@ use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
 use App\Card\Game;
+use App\Card\DeckSession;
 
 class CardGameControllerJson
 {
@@ -30,7 +31,7 @@ class CardGameControllerJson
             return $cardA[1] <=> $cardB[1];
         });
 
-        $session->set('deck', $deck);
+        $session->set('deckOfCards', $deck);
         $session->set('cards', $cards);
 
         $response = new JsonResponse($sortedDeck);
@@ -53,7 +54,7 @@ class CardGameControllerJson
             $cards[] = $graphCards->cardGraphicString($card);
         }
 
-        $session->set('deck', $deck);
+        $session->set('deckOfCards', $deck);
         $session->set('drawnCards', []);
         $response = new JsonResponse($cards);
         $response->setEncodingOptions(
@@ -65,81 +66,24 @@ class CardGameControllerJson
     #[Route("/api/deck/draw/{num<\d+>}", name: "deck_draw_number", methods: ["GET", "POST"])]
     public function drawCards(SessionInterface $session, int $num = 1): JsonResponse
     {
-        $deck = $session->get('deck');
-        $drawnCards = $session->get('drawnCards');
-        $graphCards = new cardGraphic();
-        $graphicCard = [];
-        if (!$deck) {
-            $deck = new DeckOfCards();
-            $deck->shuffleDeck();
-        }
-        if (!$drawnCards) {
-            $drawnCards = [];
-        }
-        $cards = $deck->drawMultipleCard($num);
+        $deckSession = new DeckSession();
+        $info = $deckSession->drawCardsFromDeck($session, $num);
 
-        if ($cards === null) {
-            $graphicCard = "Deck is now empty";
-            $countDeck = $deck->countDeck();
-            return new JsonResponse([
-                'Cards left:' => $countDeck,
-                'Drawn cards:' => $graphicCard
-            ]);
-        }
-
-        foreach ($cards as $card) {
-            $drawnCards[] = $card;
-            $graphicCard[] = $graphCards->cardGraphicString($card);
-        }
-
-        $session->set('deck', $deck);
-        $session->set('drawnCards', $drawnCards);
-
-        $countDeck = $deck->countDeck();
         return new JsonResponse([
-            'Cards left:' => $countDeck,
-            'Drawn cards:' => $graphicCard
+            'Cards left:' => $$info[1],
+            'Drawn cards:' => $info[0]
         ]);
     }
 
     #[Route("/api/deck/draw", name: "deck_draw_one", methods: ["GET"])]
     public function drawCard(SessionInterface $session, int $num = 1): JsonResponse
     {
-        $deck = $session->get('deck');
-        $drawnCards = $session->get('drawnCards');
-        $graphCards = new CardGraphic();
-        $graphicCard = [];
+        $deckSession = new DeckSession();
+        $info = $deckSession->drawCardsFromDeck($session, $num);
 
-        if (!$deck) {
-            $deck = new DeckOfCards();
-            $deck->shuffleDeck();
-        }
-        if (!$drawnCards) {
-            $drawnCards = [];
-        }
-        $cards = $deck->drawMultipleCard($num);
-
-        if ($cards === null) {
-            $graphicCard = "Deck is now empty";
-            $countDeck = $deck->countDeck();
-            return new JsonResponse([
-                'Cards left:' => $countDeck,
-                'Drawn cards:' => $graphicCard
-            ]);
-        }
-
-        foreach ($cards as $card) {
-            $drawnCards[] = $card;
-            $graphicCard[] = $graphCards->cardGraphicString($card);
-        }
-
-        $session->set('deck', $deck);
-        $session->set('drawnCards', $drawnCards);
-
-        $countDeck = $deck->countDeck();
         return new JsonResponse([
-            'Cards left:' => $countDeck,
-            'Drawn cards:' => $graphicCard
+            'Cards left:' => $$info[1],
+            'Drawn cards:' => $info[0]
         ]);
 
     }
@@ -150,7 +94,7 @@ class CardGameControllerJson
         $bank = $session->get('bank') ?? [];
         $game = $session->get('game') ?? new Game();
         $bankPoints = $session->get('bank_points') ?? 0;
-        $deck = $session->get('deck') ?? new DeckOfCards();
+        $deck = $session->get('deckOfCards') ?? new DeckOfCards();
 
         $playerCard = [];
         $bankCard = [];

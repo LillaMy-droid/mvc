@@ -176,6 +176,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-DeckOfCards.html#property_drawnCards"
         },                {
+            "fqsen": "\\App\\Card\\DeckSession",
+            "name": "DeckSession",
+            "summary": "",
+            "url": "classes/App-Card-DeckSession.html"
+        },                {
+            "fqsen": "\\App\\Card\\DeckSession\u003A\u003AgetDeckFromSession\u0028\u0029",
+            "name": "getDeckFromSession",
+            "summary": "",
+            "url": "classes/App-Card-DeckSession.html#method_getDeckFromSession"
+        },                {
+            "fqsen": "\\App\\Card\\DeckSession\u003A\u003AgetDrawnCardsFromSession\u0028\u0029",
+            "name": "getDrawnCardsFromSession",
+            "summary": "",
+            "url": "classes/App-Card-DeckSession.html#method_getDrawnCardsFromSession"
+        },                {
+            "fqsen": "\\App\\Card\\DeckSession\u003A\u003AdrawCardsFromDeck\u0028\u0029",
+            "name": "drawCardsFromDeck",
+            "summary": "",
+            "url": "classes/App-Card-DeckSession.html#method_drawCardsFromDeck"
+        },                {
             "fqsen": "\\App\\Card\\Game",
             "name": "Game",
             "summary": "Class\u0020has\u0020methods\u0020to\u0020play\u0020the\u0020game\u0020of\u002021.",

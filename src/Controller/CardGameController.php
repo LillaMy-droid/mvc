@@ -11,6 +11,7 @@ use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
 use App\Card\CardGraphic;
+use App\Card\DeckSession;
 
 class CardGameController extends AbstractController
 {
@@ -75,33 +76,17 @@ class CardGameController extends AbstractController
     #[Route("/card/deck/draw", name: "draw_card")]
     public function drawCard(SessionInterface $session): Response
     {
-        $deck = $session->get('deckOfCards');
-        $drawnCards = $session->get('drawnCards');
-        $graph = [];
-        if (!$deck) {
-            $deck = new DeckOfCards();
-            $deck->shuffleDeck();
-        }
-        if (!$drawnCards) {
-            $drawnCards = [];
-        }
-        $graphCards = new cardGraphic();
-        $card = $deck->drawCard();
-        if (!$card) {
+        $deckSession = new DeckSession();
+        $info = $deckSession->drawCardsFromDeck($session, 1);
+
+        if ($info[1] === "Deck is now empty") {
             $this->addFlash('error', "Deck is now empty");
-        } elseif ($card) {
-            $drawnCards[] = $card;
-            $graph = $graphCards->cardGraphic($card);
-
-            $session->set('deckOfCards', $deck);
-            $session->set('drawnCards', $drawnCards);
         }
 
-        $countDeck = $deck->countDeck();
         return $this->render('/card/draw.html.twig', [
-            'drawnCards' => $drawnCards,
-            'countDeck' => $countDeck,
-            'cards' => $graph
+            'drawnCards' => $info[0],
+            'countDeck' => $info[1],
+            'cards' => $info[2]
         ]);
     }
 
@@ -109,42 +94,17 @@ class CardGameController extends AbstractController
     public function drawNumber(int $num, SessionInterface $session): Response
     {
 
-        $deck = $session->get('deckOfCards') ?? new DeckOfCards();
-        $drawnCards = $session->get('drawnCards') ?? [];
+        $deckSession = new DeckSession();
+        $info = $deckSession->drawCardsFromDeck($session, 1);
 
-        if (!$session->get('deckOfCards')) {
-            $deck->shuffleDeck();
-        }
-
-        $cards = $deck->drawMultipleCard($num);
-        $graphCards = new CardGraphic();
-        $graphicCard = [];
-        $countDeck = $deck->countDeck();
-
-        if ($cards === null) {
+        if ($info[1] === "Deck is now empty") {
             $this->addFlash('error', "Deck is now empty");
-
-            return $this->render('/card/draw.html.twig', [
-                'drawnCards' => $drawnCards,
-                'countDeck' => $countDeck,
-                'cards' => $graphicCard
-            ]);
         }
-
-        foreach ($cards as $card) {
-            $drawnCards[] = $card;
-            $graphicCard[] = $graphCards->cardGraphic($card);
-        }
-        $countDeck = $deck->countDeck();
-
-        $session->set('deckOfCards', $deck);
-        $session->set('drawnCards', $drawnCards);
 
         return $this->render('/card/draw.html.twig', [
-            'drawnCards' => $drawnCards,
-            'countDeck' => $countDeck,
-            'cards' => $graphicCard
+            'drawnCards' => $info[0],
+            'countDeck' => $info[1],
+            'cards' => $info[2]
         ]);
     }
-
 }
