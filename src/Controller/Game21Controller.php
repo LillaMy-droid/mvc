@@ -39,8 +39,15 @@ class Game21Controller extends AbstractController
         $bank = new Bank();
 
         $player = new CardHand();
-        $player->addCardToHand($deck->drawCard());
-        $player->addCardToHand($deck->drawCard());
+        $drawCard = $deck->drawCard();
+        if ($drawCard !== 0) {
+            $player->addCardToHand($drawCard);
+        }
+
+        $drawCard = $deck->drawCard();
+        if ($drawCard !== 0) {
+            $player->addCardToHand($drawCard);
+        }
 
         $session->set('deckOfCards', $deck);
         $session->set('player', $player);
