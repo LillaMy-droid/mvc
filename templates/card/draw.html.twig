@@ -21,28 +21,5 @@
     {% endfor %}
 
     </ul>
-
-    {# <form method="get" id="form">
-        <label for="number">Choose amount of cards to draw from deck</label>
-            <input type="number" id="number" min="1" max="{{ countDeck }}">
-            <button type="submit">Draw cards</button>
-    </form>
-</div>
-<script>
-    document.getElementById('form').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const num = document.getElementById('number').value.trim();
-
-    let url;
-    if (num) {
-        url = `{{ path('draw_number', {'num': '__NUM__'}) }}`.replace('__NUM__', num);
-    } else {
-        url = `{{ path('draw_card') }}`;
-    }
-
-    window.location.href = url;
-    });
-</script> #}
 </div>
 {% endblock %}

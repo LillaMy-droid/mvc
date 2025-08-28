@@ -29,7 +29,13 @@ class LuckyControllerTwig extends AbstractController
     public function api(): Response
     {
         return $this->render('api.html.twig');
-}
+    }
+
+    #[Route('/api/draw/card/option', name: 'api_option')]
+    public function apiCard(): Response
+    {
+        return $this->render('draw.html.twig');
+    }
 
     #[Route("/lucky/number/twig", name: "lucky_number")]
     public function number(): Response

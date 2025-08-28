@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete book{% endblock %}
+
+{% block main %}
+    <main class="main">
+        <div class="mainblock">
+            <h1>Välj antal kort att dra från leken</h1>
+                <ul class="button">
+                    <li><a href="{{ path('deck_draw_one') }}">1 kort</a></li>
+                    <li><a href="{{ path('deck_draw_number', { 'num': 3 }) }}">3 kort</a></li>
+                    <li><a href="{{ path('deck_draw_number', { 'num': 5 } ) }}">5 kort</a></li>
+                </ul>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

@@ -15,7 +15,7 @@ use App\Card\Game;
 
 class CardGameControllerJson
 {
-    #[Route("api/deck")]
+    #[Route("api/deck", name: "api_deck")]
     public function jsonDeck(SessionInterface $session): Response
     {
         $sortedDeck = [];
@@ -40,7 +40,7 @@ class CardGameControllerJson
         return $response;
     }
 
-    #[Route("api/deck/shuffle")]
+    #[Route("api/deck/shuffle", name:"api_shuffle")]
     public function jsonShuffle(SessionInterface $session): Response
     {
         $cards = [];
@@ -100,7 +100,6 @@ class CardGameControllerJson
             'Cards left:' => $countDeck,
             'Drawn cards:' => $graphicCard
         ]);
-
     }
 
     #[Route("/api/deck/draw", name: "deck_draw_one", methods: ["GET"])]
@@ -144,7 +143,7 @@ class CardGameControllerJson
         ]);
 
     }
-    #[Route("api/game/")]
+    #[Route("api/game/", name:"api_game_21")]
     public function game21(SessionInterface $session): Response
     {
         $player = $session->get('player') ?? [];
@@ -173,8 +172,6 @@ class CardGameControllerJson
             'Bank points:' => $bankPoints,
             'Deck: ' => $deck
         ]);
-
-
     }
 
 }

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LibraryControllerJson extends AbstractController
 {
-    #[Route("api/library/book")]
+    #[Route("api/library/book", name:"api_books")]
     public function seeAllBooks(LibraryRepository $libraryRepository): Response
     {
         $books = $libraryRepository->findAll();
@@ -35,7 +35,7 @@ class LibraryControllerJson extends AbstractController
         return $response;
     }
 
-    #[Route("api/library/book/{Isbn}")]
+    #[Route("api/library/book/{Isbn}", name:"api_isbn")]
     public function seeOneBook(LibraryRepository $libraryRepository, string $Isbn): Response
     {
         $book = $libraryRepository->findOneBy(['Isbn' => $Isbn]);

@@ -5,10 +5,13 @@
 {% block main %}
 <h1>Länkar till Api</h1>
     <ul class="button">
-        <li><a href="/api">JSON Startsida</a></li>
-        <li><a href="/api/quote">Ordvits</a></li>
-        <li><a href="/api/deck">Sortera kortlek</a></li>
-        <li><a href="/api/shuffle">Blanda kortlek</a></li>
-        <li><a href="/api/draw">Dra kort</a></li>
+        <li><a href="{{ path('api') }}">JSON Startsida</a></li>
+        <li><a href="{{ path('api_quote') }}">Ordvits</a></li>
+        <li><a href="{{ path('api_deck') }}">Sortera kortlek</a></li>
+        <li><a href="{{ path('api_shuffle') }}">Blanda kortlek</a></li>
+        <li><a href="{{ path('api_option') }}">Dra kort</a></li>
+        <li><a href="{{ path('api_game_21') }}">Ställning i 21</a></li>
+        <li><a href="{{ path('api_books') }}">Se alla böcker</a></li>
+        <li><a href="{{ path('api_isbn', { 'Isbn':'987328031' } ) }}">Se en bok</a></li>
     </ul>
 {% endblock %}
