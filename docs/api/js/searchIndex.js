@@ -476,10 +476,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Aapi\u0028\u0029",
+            "name": "api",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_api"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003AapiCard\u0028\u0029",
+            "name": "apiCard",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_apiCard"
+        },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Anumber\u0028\u0029",
             "name": "number",
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_number"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_metrics"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",

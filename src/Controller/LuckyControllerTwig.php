@@ -24,7 +24,7 @@ class LuckyControllerTwig extends AbstractController
     {
         return $this->render('report.html.twig');
     }
-    
+
     #[Route('/api/view', name: 'api_view')]
     public function api(): Response
     {
