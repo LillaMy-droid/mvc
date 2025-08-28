@@ -34,9 +34,9 @@ class DeckSession
         $graphCards = new cardGraphic();
 
         $cards = $deck->drawMultipleCard($num);
-        if ($cards === null) {
+        if ($cards === 0) {
             return [ $graphicCard = "Deck is now empty",
-            $countDeck = $deck->countDeck()];
+            $deck->countDeck()];
         }
         foreach ($cards as $card) {
             $drawnCards[] = $card;
@@ -44,6 +44,6 @@ class DeckSession
         }
         $session->set('deckOfCards', $deck);
         $session->set('drawnCards', $drawnCards);
-        return [$graphicCard, $countDeck = $deck->countDeck(), $drawnCards];
+        return [$graphicCard, $deck->countDeck(), $drawnCards];
     }
 }

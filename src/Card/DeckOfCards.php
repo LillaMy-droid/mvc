@@ -43,7 +43,7 @@ class DeckOfCards extends Card
     public function drawCard(): ?Card
     {
         if (empty($this->deck)) {
-            return null;
+            return 0;
         }
         $card = array_shift($this->deck);
         $this->drawnCards[] = $card;
@@ -55,7 +55,7 @@ class DeckOfCards extends Card
         $cards = [];
         for ($i = 0; $i < $num; $i++) {
             $card = $this->drawCard();
-            if ($card === null) {
+            if ($card === 0) {
                 break;
             }
             $cards[] = $card;
