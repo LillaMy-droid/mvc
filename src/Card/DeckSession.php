@@ -35,7 +35,7 @@ class DeckSession
 
         $cards = $deck->drawMultipleCard($num);
         if ($cards === 0) {
-            return [ $graphicCard = "Deck is now empty",
+            return [ "Deck is now empty",
             $deck->countDeck()];
         }
         foreach ($cards as $card) {
@@ -47,10 +47,10 @@ class DeckSession
         return [$graphicCard, $deck->countDeck(), $drawnCards];
     }
 
-    function getGraphicCards(Object $player): Array
+    public function getGraphicCards(Object $player): Array
     {
         $graphic = new CardGraphic();
-        $cards = [];
+        $playerCard = [];
         
         foreach ($player->getHand() as $card) {
             $playerCard[] = $graphic->cardGraphic($card);
