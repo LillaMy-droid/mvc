@@ -13,6 +13,7 @@ use App\Card\DeckOfCards;
 use App\Card\CardGraphic;
 use App\Card\Game;
 use App\Card\Bank;
+use App\Card\DeckSession;
 
 class Game21Controller extends AbstractController
 {
@@ -41,13 +42,12 @@ class Game21Controller extends AbstractController
         $player->addCardToHand($deck->drawCard());
         $player->addCardToHand($deck->drawCard());
 
-        $session->set('deck', $deck);
+        $session->set('deckOfCards', $deck);
         $session->set('player', $player);
         $session->set('bank', $bank);
         $session->set('game', $game);
 
         return $this->redirectToRoute('game_play');
-
     }
 
     #[Route("/game/play", name: "game_play")]
@@ -77,14 +77,10 @@ class Game21Controller extends AbstractController
     #[Route("/game/draw", name:"game_draw")]
     public function draw(SessionInterface $session): Response
     {
-        $deck = $session->get('deck');
+        $deckSession = new DeckSession();
+        $deck = $deckSession->getDeckFromSession($session);
         $player = $session->get('player');
         $game = $session->get('game');
-
-        if (!$deck) {
-            $deck = new DeckOfCards();
-            $deck->shuffleDeck();
-        }
 
         if (!$player) {
             $player = new CardHand();
@@ -97,7 +93,7 @@ class Game21Controller extends AbstractController
             $player->addCardToHand($card);
         }
 
-        $session->set('deck', $deck);
+        $session->set('deckOfCards', $deck);
         $session->set('player', $player);
 
         $points = $game->points($player);
@@ -112,16 +108,16 @@ class Game21Controller extends AbstractController
     public function bank(SessionInterface $session): Response
     {
 
-        $deck = $session->get('deck');
+        $deck = $session->get('deckOfCards');
         $bank = $session->get('bank');
         $game = $session->get('game');
 
         $result = $bank->playTurn($deck, $game);
 
         $session->set('bank', $bank);
-        $session->set('deck', $deck);
+        $session->set('deckOfCards', $deck);
 
-        $session->set('bank_cards', $result['cards']);
+        $session->set('bank_cards', $result['deckOfCards']);
         $session->set('bank_points', $result['points']);
 
 
@@ -134,18 +130,11 @@ class Game21Controller extends AbstractController
         $bank = $session->get('bank');
         $game = $session->get('game');
         $bankPoints = $session->get('bank_points');
+        $deckSession = new DeckSession();
 
-        $playerCard = [];
-        $bankCard = [];
-        $graphic = new CardGraphic();
+        $playerCard = $deckSession->getGraphicCard($player);
 
-        foreach ($player->getHand() as $card) {
-            $playerCard[] = $graphic->cardGraphic($card);
-        }
-
-        foreach ($bank->getHand()->getHand() as $card) {
-            $bankCard[] = $graphic->cardGraphic($card);
-        }
+        $bankCard = $deckSession->getGraphicCard($bank);
 
         $result = $game->getWinner($bank->getHand(), $player);
 
