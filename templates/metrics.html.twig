@@ -6,33 +6,45 @@
 <div class="mainblock">
     <h1>Metrics analysis</h1>
     <h2>Introduktion</h2>
-        <h4>Code size</h4>
-            <p>Lines of code (LOC) or Logical lines of code (LLOC). LOC is how many lines are there in total of code.
-            LLOC refers to the lines of code that actually do something or that contains code. Meaning that lines that only contains curly brackets for example are counted in LOC but not LLOC.</p>
+        <h4>Codestyle</h4>
+            <p>Good codestyle makes code easy to read and maintain. Codestyle is for example using camalcase or other naming standards for functions and variables. It can also how to use indentation,
+            lengths of code lines or commenting and how it should look. In my own code i have name my functions ShuffleDeck and drawCard, these are descriptive and follow the standard for camelCase.
+            I use indentation of 4 spaces as my standard.</p>
         
         <h4>Coverage</h4>
             <p>Coverage is an indicator of how much of your code has been tested. If you have a 100% code coverage you have tests using every line of your code. However it doesn't mean that the code is well teste. Just that it all has been covered in at least one test. 
-            It could be an indication that the code is well testd but not a fact.</p>
+            It could be an indication that the code is well testd but not a fact. My code ah a test overage of 22% which is very low. The classes that has tests are almost at a 100% coverage but my overall code has not. 
+            If i wrote more tests for my classes to get more coverage i would probably find more bugs hiding in the code.</p>
         
         <h4>Complexity</h4>
             <p>One way to measure the code is through complexity. Complexity means how many different 'decisions' or returns and functions could be taken through the code.
-            High complexity number means higher amount of decisions in the code.</p>
+            High complexity number means higher amount of decisions in the code. My Game21Controller has a complexity of 12 before improvements. So if a get a lower score after my imporvements it means
+            my functions have less decisions to make. A decision can for example be if-cases.</p>
         
         <h4>Cohesion</h4>
             <p>Cohesion is a way to measure the strength of a class and its methods. The methods should be accurate and do small tasks relevant to the class.
                 It is unwanted to have methods that use unrelated data to the class or methods that do not have much in common. If a code has high cohesion they could generally is easier maintained as 
-                changes in one class do not affect the whole code and should not lead to more changes having to be made in other classes or parts of the code.</p>
+                changes in one class do not affect the whole code and should not lead to more changes having to be made in other classes or parts of the code. </p>
+
         <h4>Coupling</h4>
             <p>Generally you want your class to have low coupling to other classes. It means that it is loosely tied to other clases and do not use are not being used a lot in other classes.
-            Lower coupling makes it easier to make changes to the class as it doesn't have a lot of dependencies to other classes. </p>
+            Lower coupling makes it easier to make changes to the class as it doesn't have a lot of dependencies to other classes. Came21 and CardGame were tightly coupled in my code meaning they
+            have a high dependency on each other making this part of the code more fragile.</p>
         
         <h4>CRAP</h4>
-            <p>Stands for Change Risk Analyzer and Predictor. CRAP looks at how big the method is, how much of the method is tested and how coplex the method is.  </p>
+            <p>Stands for Change Risk Analyzer and Predictor. CRAP looks at how big the method is, how much of the method is tested and how complex the method is.
+            a high CRAP score can indicate that it is risky to change the method because it has many dependencies. Mu Game21Controller has a CRAP score of 18 which is pretty high. It means
+            other classes are depending on it and changing it can cause a chainreaction in the code meaning I have to hange a lot more in my code to make sure it works. 
+            In my original code the session was handled within
+                the controller. To better this i made a class called deckSession that handled all the logic for the session to make the code more Dry and and lower my CRAP score and complexity of the controller.</p>
+        
         <h4>Duplication</h4>
             <p>An indication of DRY-code. If you hava a high duplication-score it means you have repeated functionality and methods a lot in your ode which is not wanted.
             It is better to aim for a lower dulication and make sure that each line of code doesn't get repeated.</p>
+
     <h2>Phpmetrics</h2>
-        <p>Något som syns är direkt att mina controllers inte har hållbar kod. Enligt Phpmetrics är komplexiteten och risken för buggar hög. Varje route innehåller för många rader vilket gör den svår att underhålla och med risk för fel.</p>
+        <p>Något som syns är direkt att mina controllers inte har hållbar kod. Enligt Phpmetrics är komplexiteten och risken för buggar hög. Varje route innehåller för många rader vilket gör den svår att underhålla och med risk för fel. Förändringar i koden kan itroducera
+        buggar.</p>
         <a href="https://www.student.bth.se/~amld24/dbwebb-kurser/mvc/me/report/docs/metrics/index.html"><img src="{{ asset('images/PhpMetrics maintainability _ complexity.png') }}"></a>
     
     <h2>Scrutinizer</h2>
@@ -40,7 +52,7 @@
         <a href="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/"><img src="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/badges/coverage.png?b=main"></a>
         <a href="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/"><img src="https://scrutinizer-ci.com/g/LillaMy-droid/mvc/badges/build.png?b=main"></a>
     
-        <p>Jag skulle viilja påstå att min kod är relativt robust. Det finns två moduler som inte får A i rankning på grund av sin komplexitet. Här hade jag kunnat bryta upp funktioneerna i två mindre enbart för att få bättre 
+        <p>Jag skulle vilja påstå att min kod är relativt robust. Det finns två moduler som inte får A i rankning på grund av sin komplexitet. Här hade jag kunnat bryta upp funktioneerna i två mindre enbart för att få bättre 
         poäng i Scrutinizer. Det kommer jag däremot inte att göra då jag anser att funktionen fyller sitt syfte och för någon som kan programmering kan enkelt förstå syftet med koden. Det känns därför inte
         produktivt att bryta isär funktionen och jag tycker inte att det hade gett något positivt.<p>
 
@@ -48,9 +60,9 @@
 
         <p>Jag får höga CRAP poäng på mina controllers och det kan jag förstå. De har blivit i största laget jag hade kunnat simplifiera kontrollerna.</p>
     <h2>Förbättringar</h2>
-        <p>Jag fokuserade på de tre controllerna Game21, CardGame, och CardGameJson för mina förbättringar.Jag har brutit ut de delar som varit återkommande i en egen class
-        DeckSession för att göra koden mer Dry. Det gör controllerna mindre både i antalet rader och i komplexitet. I Scrutinizer rapporten har jag fått ner mina Crap-score
-        på alla tre controllerna. Jag har nu fått A i rankning på det moduler som tidigare hade B eftersom jaag nu har fått bort en stor del av komplexiteten.
+            <p>Jag fokuserade på de tre controllerna Game21, CardGame, och CardGameJson för mina förbättringar.Jag har brutit ut de delar som varit återkommande i en egen class
+            DeckSession för att göra koden mer Dry. Det gör controllerna mindre både i antalet rader och i komplexitet. I Scrutinizer rapporten har jag fått ner mina Crap-score
+            på alla tre controllerna. Jag har nu fått A i rankning på det moduler som tidigare hade B eftersom jaag nu har fått bort en stor del av komplexiteten.
     <h2>Diskussion</h2>
             <p>När man är mitt uppe i sitt kodande är det lätt att tänka att koden är tydlig och att man har gjort bra funktioner. Men det är inte säkert att en utomstående skulle hålla med om om en fick inblick i ens arbete.
             Man kan använda verktyg som dessa för att få en mer utomståendes perspektiv på det hela. Kanske är en funktion för komplex och bör brytas ut eller göras om? Eller så behöver den vara precis så men då kanske man behöver lägga fokus på sin dokumentation så
