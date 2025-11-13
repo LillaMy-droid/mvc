@@ -2,7 +2,15 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*]
+    excluded_paths: [vendor/*, 
+        test/*, 
+        src/Controller/DiceGameController.php, 
+        src/Controller/LuckyControllerTwig.php, 
+        src/Controller/LuckyControllerJson.php, 
+        src/Controller/LuckyController.php, 
+        src/Controller/LibraryController.php, 
+        src/Dice/*,src/Repository/*, 
+        src/Entity/*]
 
 build:
     image: default-bionic

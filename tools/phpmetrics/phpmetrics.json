@@ -4,15 +4,15 @@
     ],
     "exclude": [
       "../../test[s]?",
-      "#src/templates",
-      "#src/Controller/DiceGameController.*#",
-      "#src/Controller/LuckyControllerTwig.*#",
-      "#src/Controller/LuckyControllerJson.*#",
-      "#src/Controller/LuckyController.*#",
-      "#src/Controller/LibraryController.*#",
-      "#src/Dice#",
-      "#src/Repository#",
-      "#src/Entity#"
+      "../../src/templates",
+      "../../src/Controller/DiceGameController.php",
+      "../../src/Controller/LuckyControllerTwig.php",
+      "../../src/Controller/LuckyControllerJson.php",
+      "../../src/Controller/LuckyController.php",
+      "../../src/Controller/LibraryController.php",
+      "../../src/Dice#",
+      "../../src/Repository#",
+      "../../src/Entity#"
     ],
     "report": {
         "html": "../../docs/metrics"
