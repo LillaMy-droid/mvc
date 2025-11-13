@@ -2,8 +2,20 @@
 
 namespace App\Card;
 
+
+/**
+ * Class Rules
+ *
+ * Implements the Blackjack rules.
+ */
 class Rules
 {
+    /**
+     * Calculates the total points of the hand.
+     *
+     * @param CardHand $hand The hand to calculate points for.
+     * @return int Total points for the hand.
+     */
     public function points(CardHand $hand): int
     {
         $totalPoints = 0;
@@ -28,6 +40,13 @@ class Rules
         return $totalPoints;
     }
 
+    /**
+     * Add a new card to the player's hand by drawing from the deck.
+     *
+     * @param CardHand $hand The player's hand to add the card to.
+     * @param DeckOfCards $deck The deck to draw the card from.
+     * @return void
+     */
     public function hit(CardHand $hand, DeckOfCards $deck): void
     {
         $card = $deck->drawCard();
@@ -36,6 +55,14 @@ class Rules
         }
     }
 
+    /**
+     * Execute the bank's turn logic:
+     * - The bank draws cards until reaching at least 17 points.
+     *
+     * @param CardHand $bankHand The bank's hand.
+     * @param DeckOfCards $deck The deck to draw cards from.
+     * @return void
+     */
     public function bankTurn(CardHand $bankHand, DeckOfCards $deck): void
     {
         while ($this->points($bankHand) < 17) {
@@ -43,6 +70,18 @@ class Rules
         }
     }
 
+
+    /**
+     * Determine the winner between the bank and a player based on Blackjack rules:
+     * - If player exceeds 21, bank wins.
+     * - If bank exceeds 21, player wins.
+     * - If points are equal, bank wins.
+     * - Otherwise, the higher score wins.
+     *
+     * @param CardHand $bankHand The bank's hand.
+     * @param CardHand $playerHand The player's hand.
+     * @return string "Player Wins" or "Bank Wins".
+     */
     public function getWinner(CardHand $bankHand, CardHand $playerHand): string
     {
         $bank = $this->points($bankHand);

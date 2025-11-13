@@ -53,6 +53,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 1,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -142,10 +143,11 @@ var classes = [
         "totalDataComplexity": 60,
         "totalSystemComplexity": 60,
         "package": "App\\Entity\\",
-        "pageRank": 0.02,
+        "pageRank": 0.01,
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -211,6 +213,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 2,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -325,6 +328,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 7,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -397,6 +401,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -540,6 +545,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 8,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -665,6 +671,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 6,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -816,6 +823,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 6,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -929,6 +937,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1054,6 +1063,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 9,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1131,6 +1141,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1195,9 +1206,9 @@ var classes = [
         "nbMethodsPublic": 7,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 20,
-        "ccn": 14,
-        "ccnMethodMax": 7,
+        "wmc": 9,
+        "ccn": 3,
+        "ccnMethodMax": 2,
         "externals": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
             "Symfony\\Component\\HttpFoundation\\Response",
@@ -1205,60 +1216,60 @@ var classes = [
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "Symfony\\Component\\HttpFoundation\\Request",
-            "App\\Card\\DeckOfCards",
-            "App\\Card\\CardHand",
-            "App\\Card\\CardHand",
+            "App\\Card\\GamePlay",
+            "App\\Card\\GameSession",
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "App\\Card\\CardGraphic",
-            "App\\Card\\Rules",
-            "Symfony\\Component\\HttpFoundation\\Response",
-            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "App\\Card\\Rules",
+            "App\\Card\\GamePlay",
+            "App\\Card\\GameSession",
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "App\\Card\\Rules",
             "Symfony\\Component\\HttpFoundation\\Response",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "App\\Card\\Rules",
-            "App\\Card\\CardGraphic"
+            "Symfony\\Component\\HttpFoundation\\Response",
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "App\\Card\\GamePlay",
+            "App\\Card\\GameSession"
         ],
         "parents": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController"
         ],
         "implements": [],
-        "lcom": 1,
-        "length": 327,
-        "vocabulary": 59,
-        "volume": 1923.62,
-        "difficulty": 22.32,
-        "effort": 42935.29,
-        "level": 0.04,
-        "bugs": 0.64,
-        "time": 2385,
-        "intelligentContent": 86.18,
-        "number_operators": 79,
-        "number_operands": 248,
-        "number_operators_unique": 9,
-        "number_operands_unique": 50,
-        "cloc": 12,
-        "loc": 132,
-        "lloc": 120,
-        "mi": 52.28,
-        "mIwoC": 29.77,
-        "commentWeight": 22.51,
-        "kanDefect": 1.97,
-        "relativeStructuralComplexity": 256,
-        "relativeDataComplexity": 0.64,
-        "relativeSystemComplexity": 256.64,
-        "totalStructuralComplexity": 1792,
-        "totalDataComplexity": 4.47,
-        "totalSystemComplexity": 1796.47,
+        "lcom": 2,
+        "length": 173,
+        "vocabulary": 44,
+        "volume": 944.48,
+        "difficulty": 11.13,
+        "effort": 10513.57,
+        "level": 0.09,
+        "bugs": 0.31,
+        "time": 584,
+        "intelligentContent": 84.85,
+        "number_operators": 32,
+        "number_operands": 141,
+        "number_operators_unique": 6,
+        "number_operands_unique": 38,
+        "cloc": 7,
+        "loc": 71,
+        "lloc": 64,
+        "mi": 62.74,
+        "mIwoC": 39.36,
+        "commentWeight": 23.37,
+        "kanDefect": 0.45,
+        "relativeStructuralComplexity": 169,
+        "relativeDataComplexity": 0.69,
+        "relativeSystemComplexity": 169.69,
+        "totalStructuralComplexity": 1183,
+        "totalDataComplexity": 4.86,
+        "totalSystemComplexity": 1187.86,
         "package": "App\\Controller\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
-        "efferentCoupling": 8,
+        "efferentCoupling": 7,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1331,6 +1342,7 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1406,10 +1418,11 @@ var classes = [
         "totalDataComplexity": 12,
         "totalSystemComplexity": 12,
         "package": "App\\Dice\\",
-        "pageRank": 0.08,
+        "pageRank": 0.07,
         "afferentCoupling": 3,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -1481,6 +1494,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1571,6 +1585,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1658,6 +1673,7 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 0,
         "instability": 0,
+        "numberOfUnitTests": 37,
         "violations": {}
     },
     {
@@ -1736,6 +1752,123 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 1,
         "instability": 0.25,
+        "numberOfUnitTests": 10,
+        "violations": {}
+    },
+    {
+        "name": "App\\Card\\GamePlay",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "__construct",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "createGame",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "formatCards",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "calculatePoints",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "bankTurn",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getWinner",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getResult",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 7,
+        "nbMethods": 7,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 7,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 10,
+        "ccn": 4,
+        "ccnMethodMax": 2,
+        "externals": [
+            "App\\Card\\Rules",
+            "App\\Card\\CardGraphic",
+            "App\\Card\\DeckOfCards",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand",
+            "App\\Card\\DeckOfCards",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand",
+            "App\\Card\\CardHand"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 2,
+        "length": 121,
+        "vocabulary": 30,
+        "volume": 593.73,
+        "difficulty": 11.38,
+        "effort": 6753.72,
+        "level": 0.09,
+        "bugs": 0.2,
+        "time": 375,
+        "intelligentContent": 52.2,
+        "number_operators": 30,
+        "number_operands": 91,
+        "number_operators_unique": 6,
+        "number_operands_unique": 24,
+        "cloc": 49,
+        "loc": 111,
+        "lloc": 62,
+        "mi": 83.79,
+        "mIwoC": 40.94,
+        "commentWeight": 42.85,
+        "kanDefect": 0.61,
+        "relativeStructuralComplexity": 121,
+        "relativeDataComplexity": 0.52,
+        "relativeSystemComplexity": 121.52,
+        "totalStructuralComplexity": 847,
+        "totalDataComplexity": 3.67,
+        "totalSystemComplexity": 850.67,
+        "package": "App\\Card\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 4,
+        "instability": 0.8,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1806,10 +1939,11 @@ var classes = [
         "totalDataComplexity": 2.5,
         "totalSystemComplexity": 5.5,
         "package": "App\\Card\\",
-        "pageRank": 0.11,
+        "pageRank": 0.12,
         "afferentCoupling": 5,
         "efferentCoupling": 1,
         "instability": 0.17,
+        "numberOfUnitTests": 12,
         "violations": {}
     },
     {
@@ -1920,6 +2054,7 @@ var classes = [
         "afferentCoupling": 7,
         "efferentCoupling": 1,
         "instability": 0.13,
+        "numberOfUnitTests": 11,
         "violations": {}
     },
     {
@@ -2009,6 +2144,102 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 3,
         "instability": 0.5,
+        "numberOfUnitTests": 0,
+        "violations": {}
+    },
+    {
+        "name": "App\\Card\\GameSession",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "saveGame",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "getGame",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "updatePlayers",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "updateBank",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "updateCurrentPlayer",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 5,
+        "nbMethods": 5,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 5,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 5,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
+            "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
+        ],
+        "parents": [],
+        "implements": [],
+        "lcom": 5,
+        "length": 41,
+        "vocabulary": 8,
+        "volume": 123,
+        "difficulty": 2.86,
+        "effort": 351.43,
+        "level": 0.35,
+        "bugs": 0.04,
+        "time": 20,
+        "intelligentContent": 43.05,
+        "number_operators": 1,
+        "number_operands": 40,
+        "number_operators_unique": 1,
+        "number_operands_unique": 7,
+        "cloc": 46,
+        "loc": 73,
+        "lloc": 27,
+        "mi": 101.13,
+        "mIwoC": 54.01,
+        "commentWeight": 47.12,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 4,
+        "relativeDataComplexity": 1.07,
+        "relativeSystemComplexity": 5.07,
+        "totalStructuralComplexity": 20,
+        "totalDataComplexity": 5.33,
+        "totalSystemComplexity": 25.33,
+        "package": "App\\Card\\",
+        "pageRank": 0.02,
+        "afferentCoupling": 1,
+        "efferentCoupling": 1,
+        "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2080,12 +2311,12 @@ var classes = [
         "number_operands": 64,
         "number_operators_unique": 11,
         "number_operands_unique": 19,
-        "cloc": 0,
-        "loc": 55,
+        "cloc": 37,
+        "loc": 92,
         "lloc": 55,
-        "mi": 41.64,
+        "mi": 83.24,
         "mIwoC": 41.64,
-        "commentWeight": 0,
+        "commentWeight": 41.59,
         "kanDefect": 1.26,
         "relativeStructuralComplexity": 36,
         "relativeDataComplexity": 1.11,
@@ -2095,9 +2326,10 @@ var classes = [
         "totalSystemComplexity": 148.43,
         "package": "App\\Card\\",
         "pageRank": 0.02,
-        "afferentCoupling": 1,
+        "afferentCoupling": 2,
         "efferentCoupling": 2,
-        "instability": 0.67,
+        "instability": 0.5,
+        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2171,10 +2403,11 @@ var classes = [
         "totalDataComplexity": 2,
         "totalSystemComplexity": 29,
         "package": "App\\Card\\",
-        "pageRank": 0.02,
+        "pageRank": 0.01,
         "afferentCoupling": 1,
         "efferentCoupling": 3,
         "instability": 0.75,
+        "numberOfUnitTests": 5,
         "violations": {}
     },
     {
@@ -2259,10 +2492,11 @@ var classes = [
         "totalDataComplexity": 3,
         "totalSystemComplexity": 67,
         "package": "App\\Card\\",
-        "pageRank": 0.04,
+        "pageRank": 0.03,
         "afferentCoupling": 5,
         "efferentCoupling": 1,
         "instability": 0.17,
+        "numberOfUnitTests": 2,
         "violations": {}
     }
 ]

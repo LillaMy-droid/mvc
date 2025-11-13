@@ -12,6 +12,8 @@ use App\Card\CardHand;
 use App\Card\Rules;
 use App\Card\CardGraphic;
 use App\Card\DeckSession;
+use App\Card\GameSession;
+use App\Card\GamePlay;
 
 class ProjectController extends AbstractController
 {
@@ -28,77 +30,32 @@ class ProjectController extends AbstractController
     }
 
     #[Route("/proj/start", name: "proj_start", methods: ["GET"])]
-    public function start(SessionInterface $session, Request $request): Response
+    public function start(SessionInterface $session, Request $request, GamePlay $gamePlay, GameSession $gameSession): Response
     {
-        $num = $request->query->get('num', 2);
-        $deck = new DeckOfCards();
-        $deck->shuffleDeck();
-
-        $players = [];
-        for ($i = 0; $i < $num; $i++) {
-            $hand = new CardHand();
-            $hand->addCardToHand($deck->drawCard());
-            $hand->addCardToHand($deck->drawCard());
-            $players[] = $hand;
-        }
-
-        $bankHand = new CardHand();
-        $bankHand->addCardToHand($deck->drawCard());
-        $bankHand->addCardToHand($deck->drawCard());
-
-        $session->set('deck', $deck);
-        $session->set('players', $players);
-        $session->set('bankHand', $bankHand);
-        $session->set('currentPlayerIndex', 0);
+        $num = $request->query->get('num', 1);
+        [$deck, $players, $bankHand] = $gamePlay->createGame($num);
+        $gameSession->saveGame($session, $deck, $players, $bankHand);
 
         return $this->redirectToRoute('proj_game');
     }
 
     #[Route("/proj/game", name: "proj_game", methods: ["GET"])]
-    public function game(SessionInterface $session): Response
+    public function game(SessionInterface $session, GamePlay $gamePlay, GameSession $gameSession): Response
     {
-        $players = $session->get('players');
-        $bankHand = $session->get('bankHand');
-        $currentPlayerIndex = $session->get('currentPlayerIndex');
+        [$deck, $players, $bankHand, $currentPlayerIndex] = $gameSession->getGame($session);
 
-        if (!$players || !$bankHand) {
-            return $this->redirectToRoute('proj_home');
-        }
+        $bankCards = $gamePlay->formatCards($bankHand);
+        $bankPoints = $gamePlay->calculatePoints($bankHand);
 
-        $graphic = new CardGraphic();
-        $game = new Rules();
-
-        // Bankens kort
-        $bankCards = [];
-        foreach ($bankHand->getHand() as $card) {
-            [$valueGraph, $colorSymbol] = $graphic->cardGraphic($card);
-            $bankCards[] = $colorSymbol . " " . $valueGraph;
-        }
-        $bankPoints = $game->points($bankHand);
-
-        // Spelarnas kort och poäng
         $playerCards = [];
         $playerPoints = [];
         foreach ($players as $hand) {
-            $cards = [];
-            foreach ($hand->getHand() as $card) {
-                [$valueGraph, $colorSymbol] = $graphic->cardGraphic($card);
-                $cards[] = $colorSymbol . " " . $valueGraph;
-            }
-            $playerCards[] = $cards;
-            $playerPoints[] = $game->points($hand);
+            $playerCards[] = $gamePlay->formatCards($hand);
+            $playerPoints[] = $gamePlay->calculatePoints($hand);
         }
 
-        return $this->render('proj/game.html.twig', [
-            'bankCards' => $bankCards,
-            'bankPoints' => $bankPoints,
-            'playerCards' => $playerCards,
-            'playerPoints' => $playerPoints,
-            'currentPlayer' => $currentPlayerIndex
-        ]);
+        return $this->render('proj/game.html.twig', compact('bankCards', 'bankPoints', 'playerCards', 'playerPoints', 'currentPlayerIndex'));
     }
-
-
 
     #[Route("/proj/hit", name: "proj_hit", methods: ["POST"])]
     public function hit(SessionInterface $session): Response
@@ -136,57 +93,13 @@ class ProjectController extends AbstractController
         return $this->redirectToRoute('proj_game');
     }
 
-
     #[Route("/proj/result", name: "proj_result", methods: ["GET"])]
-    public function result(SessionInterface $session): Response
+    public function result(SessionInterface $session, GamePlay $gamePlay, GameSession $gameSession): Response
     {
-        $players = $session->get('players');
-        $bankHand = $session->get('bankHand');
-        $game = new Rules();
+        [$deck, $players, $bankHand] = $gameSession->getGame($session);
 
-        if (!$players || !$bankHand) {
-            return $this->redirectToRoute('proj_home');
-        }
+        $data = $gamePlay->getResult($players, $bankHand);
 
-        $graphic = new CardGraphic();
-
-        // Bankens kort och poäng
-        $bankCards = [];
-        foreach ($bankHand->getHand() as $card) {
-            [$valueGraph, $colorSymbol] = $graphic->cardGraphic($card);
-            $bankCards[] = $colorSymbol . " " . $valueGraph;
-        }
-        $bankPoints = $game->points($bankHand);
-
-        // Spelarnas kort och poäng
-        $playerCards = [];
-        $playerPoints = [];
-        foreach ($players as $hand) {
-            $cards = [];
-            foreach ($hand->getHand() as $card) {
-                [$valueGraph, $colorSymbol] = $graphic->cardGraphic($card);
-                $cards[] = $colorSymbol . " " . $valueGraph;
-            }
-            $playerCards[] = $cards;
-            $playerPoints[] = $game->points($hand);
-        }
-
-        // Resultat per spelare
-        $results = [];
-        foreach ($players as $index => $hand) {
-            $results[] = [
-                'player' => 'Spelare ' . ($index + 1),
-                'result' => $game->getWinner($bankHand, $hand)
-            ];
-        }
-
-        return $this->render('proj/result.html.twig', [
-            'bankCards' => $bankCards,
-            'bankPoints' => $bankPoints,
-            'playerCards' => $playerCards,
-            'playerPoints' => $playerPoints,
-            'results' => $results
-        ]);
+        return $this->render('proj/result.html.twig', $data);
     }
-
 }

@@ -3,7 +3,16 @@
         "../../src"
     ],
     "exclude": [
-      "../../test[s]?"
+      "../../test[s]?",
+      "#src/templates",
+      "#src/Controller/DiceGameController.*#",
+      "#src/Controller/LuckyControllerTwig.*#",
+      "#src/Controller/LuckyControllerJson.*#",
+      "#src/Controller/LuckyController.*#",
+      "#src/Controller/LibraryController.*#",
+      "#src/Dice#",
+      "#src/Repository#",
+      "#src/Entity#"
     ],
     "report": {
         "html": "../../docs/metrics"

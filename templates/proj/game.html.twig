@@ -10,9 +10,9 @@
     {% endfor %}
 </ul>
 
-<h2>Spelare {{ currentPlayer + 1 }} tur ({{ playerPoints[currentPlayer] }} poäng):</h2>
+<h2>Spelare {{ currentPlayerIndex + 1 }} tur ({{ playerPoints[currentPlayerIndex] }} poäng):</h2>
 <ul>
-    {% for card in playerCards[currentPlayer] %}
+    {% for card in playerCards[currentPlayerIndex] %}
         <li class="card">{{ card }}</li>
     {% endfor %}
 </ul>
