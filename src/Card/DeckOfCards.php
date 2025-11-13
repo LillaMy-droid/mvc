@@ -11,7 +11,6 @@ class DeckOfCards extends Card
 
     public function __construct()
     {
-
         for ($value = 1; $value <= 13; $value++) {
             for ($color = 1; $color <= 4; $color++) {
                 $card = new Card();

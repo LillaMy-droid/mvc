@@ -74,4 +74,9 @@ class CardGraphic extends Card
         return [$valueGraph, $color];
     }
 
+    public function getAsString(Card $card): string
+    {
+        [$valueGraph, $colorSymbol] = $this->cardGraphic($card);
+        return $colorSymbol . " " . $valueGraph;
+    }
 }

@@ -1,0 +1,28 @@
+{% extends 'baseproj.html.twig' %}
+
+{% block main %}
+<h1>Blackjack</h1>
+
+<h2>Bankens hand ({{ bankPoints }} poäng):</h2>
+<ul>
+    {% for card in bankCards %}
+        <li class="card">{{ card }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Spelare {{ currentPlayer + 1 }} tur ({{ playerPoints[currentPlayer] }} poäng):</h2>
+<ul>
+    {% for card in playerCards[currentPlayer] %}
+        <li class="card">{{ card }}</li>
+    {% endfor %}
+</ul>
+
+
+
+<form action="{{ path('proj_hit') }}" method="post">
+    <button type="submit">Hit</button>
+</form>
+<form action="{{ path('proj_stand') }}" method="post">
+    <button type="submit">Stand</button>
+</form>
+{% endblock %}

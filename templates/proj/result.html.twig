@@ -1,0 +1,32 @@
+
+{% extends 'baseproj.html.twig' %}
+
+{% block main %}
+<h1>Resultat</h1>
+
+<h2>Bankens hand ({{ bankPoints }} poäng):</h2>
+<ul>
+    {% for card in bankCards %}
+        <li class="card">{{ card }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Spelarnas händer:</h2>
+{% for cards in playerCards %}
+    <p>Spelare {{ loop.index }} ({{ playerPoints[loop.index0] }} poäng):</p>
+    <ul>
+        {% for card in cards %}
+            <li class="card">{{ card }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<h2>Vinnare:</h2>
+<ul>
+    {% for item in results %}
+        <li>{{ item.player }}: {{ item.result }}</li>
+    {% endfor %}
+</ul>
+
+<button><a href="{{ path('proj_home') }}">Spela igen</a></button>
+{% endblock %}

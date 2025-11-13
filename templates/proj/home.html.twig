@@ -1,0 +1,12 @@
+
+{% extends 'baseproj.html.twig' %}
+
+{% block main %}
+<h1>Blackjack</h1>
+<h2>Om spelet Blackjack: <button><a href="{{ path('proj_about') }}">About</a></button></h2>
+<form action="{{ path('proj_start')}}">
+    <label for="num">Antal spelare:</label>
+    <input id="num" type="number" name="num" value="1" min="1" max="5">
+    <button type="submit">Starta spel</button>
+</form>
+{% endblock %}

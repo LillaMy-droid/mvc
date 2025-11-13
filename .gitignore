@@ -35,3 +35,6 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 .phpdoc/
+.env.test
+.env.dev
+.env
