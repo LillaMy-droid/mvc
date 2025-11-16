@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Card;
 
 use App\Card\DeckOfCards;
@@ -12,7 +13,6 @@ use App\Card\CardGraphic;
  * Provides core game logic for Blackjack, including creating a game,
  * formatting cards for display, calculating points, and determining winners.
  */
-
 class GamePlay
 {
     private Rules $rules;
@@ -53,7 +53,6 @@ class GamePlay
         return [$deck, $players, $bankHand];
     }
 
-    
     /**
      * Format a CardHand into an array of strings for display.
      * Each card is represented as "♠ Ace", "♥ 10", etc.
@@ -87,7 +86,6 @@ class GamePlay
         $this->rules->bankTurn($bankHand, $deck);
     }
 
-
     /**
      * Determine the winner between the bank and a player.
      *
@@ -114,7 +112,7 @@ class GamePlay
     *     playerCards: array[], playerPoints: int[],
     *     results: array[] (player name and result)
     * }
-    */    
+    */
     public function getResult(array $players, CardHand $bankHand): array
     {
         $bankCards = $this->formatCards($bankHand);
@@ -141,5 +139,4 @@ class GamePlay
             'results' => $results
         ];
     }
-
 }

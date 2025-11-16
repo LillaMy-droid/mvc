@@ -47,11 +47,11 @@ class DeckSession
         return [$graphicCard, $deck->countDeck(), $drawnCards];
     }
 
-    public function getGraphicCards(Object $player): Array
+    public function getGraphicCards(Object $player): array
     {
         $graphic = new CardGraphic();
         $playerCard = [];
-        
+
         foreach ($player->getHand() as $card) {
             $playerCard[] = $graphic->cardGraphic($card);
         }

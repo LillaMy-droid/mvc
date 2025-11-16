@@ -96,6 +96,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Card-CardGraphic.html#method_cardGraphicString"
         },                {
+            "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetAsString\u0028\u0029",
+            "name": "getAsString",
+            "summary": "",
+            "url": "classes/App-Card-CardGraphic.html#method_getAsString"
+        },                {
             "fqsen": "\\App\\Card\\CardHand",
             "name": "CardHand",
             "summary": "",
@@ -220,6 +225,111 @@ Search.appendIndex(
             "name": "getWinner",
             "summary": "Compares\u0020points\u0020of\u0020both\u0020players\u0020to\u0020see\u0020if\u0020bank\u0020or\u0020player\u0020won\u0020the\u0020round.",
             "url": "classes/App-Card-Game.html#method_getWinner"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay",
+            "name": "GamePlay",
+            "summary": "Class\u0020GamePlay",
+            "url": "classes/App-Card-GamePlay.html"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Card-GamePlay.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AcreateGame\u0028\u0029",
+            "name": "createGame",
+            "summary": "Create\u0020a\u0020new\u0020Blackjack\u0020game\u0020with\u0020a\u0020shuffled\u0020deck,\u0020players,\u0020and\u0020bank\u0020hand.",
+            "url": "classes/App-Card-GamePlay.html#method_createGame"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AformatCards\u0028\u0029",
+            "name": "formatCards",
+            "summary": "Format\u0020a\u0020CardHand\u0020into\u0020an\u0020array\u0020of\u0020strings\u0020for\u0020display.",
+            "url": "classes/App-Card-GamePlay.html#method_formatCards"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AcalculatePoints\u0028\u0029",
+            "name": "calculatePoints",
+            "summary": "Calculate\u0020the\u0020total\u0020points\u0020for\u0020a\u0020given\u0020hands.",
+            "url": "classes/App-Card-GamePlay.html#method_calculatePoints"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AbankTurn\u0028\u0029",
+            "name": "bankTurn",
+            "summary": "",
+            "url": "classes/App-Card-GamePlay.html#method_bankTurn"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AgetWinner\u0028\u0029",
+            "name": "getWinner",
+            "summary": "Determine\u0020the\u0020winner\u0020between\u0020the\u0020bank\u0020and\u0020a\u0020player.",
+            "url": "classes/App-Card-GamePlay.html#method_getWinner"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003AgetResult\u0028\u0029",
+            "name": "getResult",
+            "summary": "Prepare\u0020result\u0020data\u0020for\u0020the\u0020game\u003A\n\u002D\u0020Bank\u0027s\u0020cards\u0020and\u0020points\n\u002D\u0020Players\u0027\u0020cards\u0020and\u0020points\n\u002D\u0020Winner\u0020for\u0020each\u0020player",
+            "url": "classes/App-Card-GamePlay.html#method_getResult"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003A\u0024rules",
+            "name": "rules",
+            "summary": "",
+            "url": "classes/App-Card-GamePlay.html#property_rules"
+        },                {
+            "fqsen": "\\App\\Card\\GamePlay\u003A\u003A\u0024graphic",
+            "name": "graphic",
+            "summary": "",
+            "url": "classes/App-Card-GamePlay.html#property_graphic"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession",
+            "name": "GameSession",
+            "summary": "Class\u0020GameSession",
+            "url": "classes/App-Card-GameSession.html"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession\u003A\u003AsaveGame\u0028\u0029",
+            "name": "saveGame",
+            "summary": "Save\u0020the\u0020current\u0020game\u0020state\u0020into\u0020the\u0020session.",
+            "url": "classes/App-Card-GameSession.html#method_saveGame"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession\u003A\u003AgetGame\u0028\u0029",
+            "name": "getGame",
+            "summary": "Retrieve\u0020the\u0020current\u0020game\u0020state\u0020from\u0020the\u0020session.",
+            "url": "classes/App-Card-GameSession.html#method_getGame"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession\u003A\u003AupdatePlayers\u0028\u0029",
+            "name": "updatePlayers",
+            "summary": "Update\u0020the\u0020players\u0027\u0020hands\u0020in\u0020the\u0020session.",
+            "url": "classes/App-Card-GameSession.html#method_updatePlayers"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession\u003A\u003AupdateBank\u0028\u0029",
+            "name": "updateBank",
+            "summary": "Update\u0020the\u0020bank\u0027s\u0020hand\u0020in\u0020the\u0020session.",
+            "url": "classes/App-Card-GameSession.html#method_updateBank"
+        },                {
+            "fqsen": "\\App\\Card\\GameSession\u003A\u003AupdateCurrentPlayer\u0028\u0029",
+            "name": "updateCurrentPlayer",
+            "summary": "Update\u0020the\u0020current\u0020player\u0027s\u0020index\u0020in\u0020the\u0020session.",
+            "url": "classes/App-Card-GameSession.html#method_updateCurrentPlayer"
+        },                {
+            "fqsen": "\\App\\Card\\Rules",
+            "name": "Rules",
+            "summary": "Class\u0020Rules",
+            "url": "classes/App-Card-Rules.html"
+        },                {
+            "fqsen": "\\App\\Card\\Rules\u003A\u003Apoints\u0028\u0029",
+            "name": "points",
+            "summary": "Calculates\u0020the\u0020total\u0020points\u0020of\u0020the\u0020hand.",
+            "url": "classes/App-Card-Rules.html#method_points"
+        },                {
+            "fqsen": "\\App\\Card\\Rules\u003A\u003Ahit\u0028\u0029",
+            "name": "hit",
+            "summary": "Add\u0020a\u0020new\u0020card\u0020to\u0020the\u0020player\u0027s\u0020hand\u0020by\u0020drawing\u0020from\u0020the\u0020deck.",
+            "url": "classes/App-Card-Rules.html#method_hit"
+        },                {
+            "fqsen": "\\App\\Card\\Rules\u003A\u003AbankTurn\u0028\u0029",
+            "name": "bankTurn",
+            "summary": "Execute\u0020the\u0020bank\u0027s\u0020turn\u0020logic\u003A\n\u002D\u0020The\u0020bank\u0020draws\u0020cards\u0020until\u0020reaching\u0020at\u0020least\u002017\u0020points.",
+            "url": "classes/App-Card-Rules.html#method_bankTurn"
+        },                {
+            "fqsen": "\\App\\Card\\Rules\u003A\u003AgetWinner\u0028\u0029",
+            "name": "getWinner",
+            "summary": "Determine\u0020the\u0020winner\u0020between\u0020the\u0020bank\u0020and\u0020a\u0020player\u0020based\u0020on\u0020Blackjack\u0020rules\u003A\n\u002D\u0020If\u0020player\u0020exceeds\u002021,\u0020bank\u0020wins.",
+            "url": "classes/App-Card-Rules.html#method_getWinner"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",
@@ -520,6 +630,46 @@ Search.appendIndex(
             "name": "metrics",
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_metrics"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController",
+            "name": "ProjectController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_about"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Astart\u0028\u0029",
+            "name": "start",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_start"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Agame\u0028\u0029",
+            "name": "game",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_game"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Ahit\u0028\u0029",
+            "name": "hit",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_hit"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Astand\u0028\u0029",
+            "name": "stand",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_stand"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aresult\u0028\u0029",
+            "name": "result",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_result"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",

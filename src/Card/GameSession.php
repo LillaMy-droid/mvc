@@ -4,7 +4,6 @@ namespace App\Card;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
 /**
  * Class GameSession
  *
@@ -13,7 +12,6 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class GameSession
 {
-
     /**
      * Save the current game state into the session.
      *

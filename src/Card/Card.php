@@ -14,21 +14,39 @@ class Card
         $this->color = 0;
     }
 
+    /**
+    * Set the value of the card represented by an integer.
+    * @param int$color The int represents the color of the card.
+    */
     public function setValue(int $value): void
     {
         $this->value = $value;
     }
 
+    /**
+    * Set the color of the card represented by an integer.
+    * @param int$color The int represents the color of the card.
+    */
     public function setColor(int $color): void
     {
         $this->color = $color;
     }
 
+    /**
+    * Returns value of card as int.
+    *
+    * @return int[] Returns value of card as int.
+    */
     public function getValue(): int
     {
         return $this->value;
     }
 
+    /**
+    * Returns color of card as int.
+    *
+    * @return int[] Returns color of card as int.
+    */
     public function getColor(): int
     {
         return $this->color ;

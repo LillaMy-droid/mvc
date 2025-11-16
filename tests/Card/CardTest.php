@@ -89,6 +89,5 @@ class CardTest extends TestCase
         $this->assertEquals(["Queen", "Diamond"], $graphic->cardGraphicString($card3));
         $this->assertEquals(["King", "Clove"], $graphic->cardGraphicString($card4));
         $this->assertEquals(["Knight", "?"], $graphic->cardGraphicString($card5));
-
     }
 }

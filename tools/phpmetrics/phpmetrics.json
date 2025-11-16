@@ -1,18 +1,15 @@
 {
     "includes": [
-        "../../src"
+        "../../src/Card"
     ],
     "exclude": [
-      "../../test[s]?",
-      "../../src/templates",
-      "../../src/Controller/DiceGameController.php",
-      "../../src/Controller/LuckyControllerTwig.php",
-      "../../src/Controller/LuckyControllerJson.php",
-      "../../src/Controller/LuckyController.php",
-      "../../src/Controller/LibraryController.php",
-      "../../src/Dice#",
-      "../../src/Repository#",
-      "../../src/Entity#"
+        "../../test[s]?",
+        "../../src/templates",
+        "../../src/Controller",
+        "../../src/Card/DeckSession.php",
+        "../../src/Dice",
+        "../../src/Repository",
+        "../../src/Entity"
     ],
     "report": {
         "html": "../../docs/metrics"

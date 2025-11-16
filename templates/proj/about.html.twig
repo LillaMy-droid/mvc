@@ -5,7 +5,17 @@
 {% block main %}
     <main class="projmain">
         <div class="projmainblock">
-            <h1>Om kortspelet</h1>
+            <section>
+                <h2>Om Blackjack</h2>
+                <p>
+                    Blackjack är ett klassiskt kortspel där målet är att få en hand så nära <strong>21</strong> som möjligt utan att gå över.
+                    Varje spelare får två kort, liksom banken. Ess räknas som 1 eller 11, klädda kort som 10 och övriga kort har sitt siffervärde.
+                </p>
+                <p>
+                    Spelaren kan välja att <em>ta ett kort</em> (Hit) eller <em>stanna</em> (Stand). Banken drar kort tills den har minst 17 poäng.
+                    Vinner gör den som har högst poäng utan att överstiga 21 - vid lika poäng vinner banken.
+                </p>
+            </section>
             <button class="button"><a href="{{ path('proj_start') }}">Starta spel</a>
         </div>
     </main>

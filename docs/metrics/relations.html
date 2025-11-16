@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-11-13 06:06:00        , with PHPMetrics v2.9.0 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-11-14 00:48:49        , with PHPMetrics v2.9.0 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -93,7 +93,7 @@
                             <path d="M0 0h24v24H0z" fill="none">
                             <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z">
                         </svg>
-                        Violations (5)
+                        Violations (0)
                     </a>
                 </li>
                                     <li>
@@ -262,64 +262,37 @@
 
     var relations = [
     {
-        "name": "\\App\\Kernel",
+        "name": "\\App\\Card\\Card",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Card\\Game",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Card\\CardHand",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Card\\GamePlay",
         "size": 3000,
         "relations": [
-            "\\Symfony\\Component\\HttpKernel\\Kernel"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpKernel\\Kernel",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Entity\\Library",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Repository\\LibraryRepository",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Doctrine\\Persistence\\ManagerRegistry",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\CardGameControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\DeckOfCards",
+            "\\App\\Card\\Rules",
             "\\App\\Card\\CardGraphic",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "\\App\\Card\\DeckSession",
-            "\\App\\Card\\Game"
+            "\\App\\Card\\DeckOfCards",
+            "\\App\\Card\\CardHand"
         ]
     },
     {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Response",
+        "name": "\\App\\Card\\Rules",
         "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Card\\DeckOfCards",
-        "size": 3000,
-        "relations": []
+        "relations": [
+            "\\App\\Card\\CardHand",
+            "\\App\\Card\\DeckOfCards"
+        ]
     },
     {
         "name": "\\App\\Card\\CardGraphic",
@@ -329,7 +302,7 @@
         ]
     },
     {
-        "name": "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
+        "name": "\\App\\Card\\DeckOfCards",
         "size": 3000,
         "relations": []
     },
@@ -343,111 +316,15 @@
         ]
     },
     {
-        "name": "\\App\\Card\\Game",
+        "name": "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\App\\Controller\\LuckyController",
+        "name": "\\App\\Card\\GameSession",
         "size": 3000,
         "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\DiceGameController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Dice\\DiceHand",
-            "\\App\\Dice\\DiceGraphic",
-            "\\App\\Dice\\Dice",
-            "\\Exception"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Dice\\DiceHand",
-        "size": 3000,
-        "relations": [
-            "\\App\\Dice\\Dice"
-        ]
-    },
-    {
-        "name": "\\App\\Dice\\DiceGraphic",
-        "size": 3000,
-        "relations": [
-            "\\App\\Dice\\Dice"
-        ]
-    },
-    {
-        "name": "\\App\\Dice\\Dice",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Exception",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\CardGameController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\DeckOfCards",
-            "\\App\\Card\\CardGraphic",
-            "\\App\\Card\\DeckSession"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LibraryController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\Doctrine\\Persistence\\ManagerRegistry",
-            "\\App\\Entity\\Library",
-            "\\App\\Repository\\LibraryRepository"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LuckyControllerTwig",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\Game21Controller",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\App\\Card\\DeckOfCards",
-            "\\App\\Card\\Game",
-            "\\App\\Card\\Bank",
-            "\\App\\Card\\CardHand",
-            "\\App\\Card\\CardGraphic",
-            "\\App\\Card\\DeckSession"
+            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
         ]
     },
     {
@@ -458,72 +335,6 @@
             "\\App\\Card\\DeckOfCards",
             "\\App\\Card\\Game"
         ]
-    },
-    {
-        "name": "\\App\\Card\\CardHand",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\App\\Controller\\LibraryControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\App\\Repository\\LibraryRepository",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\ProjectController",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
-            "\\Symfony\\Component\\HttpFoundation\\Request",
-            "\\App\\Card\\GamePlay",
-            "\\App\\Card\\GameSession",
-            "\\App\\Card\\Rules"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\GamePlay",
-        "size": 3000,
-        "relations": [
-            "\\App\\Card\\Rules",
-            "\\App\\Card\\CardGraphic",
-            "\\App\\Card\\DeckOfCards",
-            "\\App\\Card\\CardHand"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\GameSession",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Session\\SessionInterface"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\Rules",
-        "size": 3000,
-        "relations": [
-            "\\App\\Card\\CardHand",
-            "\\App\\Card\\DeckOfCards"
-        ]
-    },
-    {
-        "name": "\\App\\Controller\\LuckyControllerJson",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\HttpFoundation\\Response",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
-        ]
-    },
-    {
-        "name": "\\App\\Card\\Card",
-        "size": 3000,
-        "relations": []
     }
 ];
 
